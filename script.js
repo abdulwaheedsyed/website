@@ -52,7 +52,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 e.preventDefault();
                 const target = document.querySelector(href);
                 if (target) {
-                    const offsetTop = target.offsetTop - 60;
+                    const navbar = document.querySelector('.navbar');
+                    const navbarHeight = navbar ? navbar.offsetHeight : 60;
+                    const offsetTop = target.offsetTop - navbarHeight;
                     window.scrollTo({
                         top: offsetTop,
                         behavior: 'smooth'
