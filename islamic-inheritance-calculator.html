@@ -4,6 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Mīrāth — Islamic Inheritance Calculator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;600;700&family=Noto+Serif+Devanagari:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
   --lapis:#0E1428; --lapis2:#151C36; --lapis3:#1D2748; --line:#28325A; --line-soft:#1F2842;
@@ -13,6 +16,8 @@
   --serif:'Iowan Old Style','Palatino Linotype',Palatino,'Book Antiqua','URW Palladio L',Georgia,serif;
   --mono:ui-monospace,'SF Mono','Cascadia Mono','Roboto Mono',Menlo,Consolas,monospace;
   --ar:'Geeza Pro','Noto Naskh Arabic','Traditional Arabic','Segoe UI',serif;
+  --ur:'Noto Nastaliq Urdu','Jameel Noori Nastaleeq','Awami Nastaliq','Noto Naskh Arabic','Segoe UI',serif;
+  --hi:'Noto Serif Devanagari','Nirmala UI',Mangal,Georgia,serif;
 }
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
@@ -240,6 +245,87 @@ footer p{max-width:82ch}
   .schools,.presets,.actions,.step:nth-of-type(-n+2) .grid,.spouse-pick,details.arham{display:none}
   .seg span{color:#000}
 }
+
+/* ---------- language ---------- */
+.langbar{display:flex;justify-content:center;gap:6px;margin-bottom:26px}
+.langbtn{
+  font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+  padding:7px 14px;border:1px solid var(--line-soft);background:transparent;color:var(--faint);
+  border-radius:2px;cursor:pointer;transition:all .16s;line-height:1.5
+}
+.langbtn:hover{border-color:var(--brass);color:var(--bone)}
+.langbtn[aria-pressed="true"]{border-color:var(--brass);color:var(--brass)}
+.langbtn[data-l="ur"]{font-family:var(--ur);font-size:15px;letter-spacing:normal;text-transform:none;padding:2px 16px 8px}
+.langbtn[data-l="hi"]{font-family:var(--hi);font-size:13.5px;letter-spacing:normal;text-transform:none;padding:5px 15px}
+
+/* ---------- urdu ---------- */
+html[lang="ur"] body{font-family:var(--ur);font-size:15px;line-height:2.2}
+html[lang="ur"] .eyebrow,html[lang="ur"] .school,html[lang="ur"] .tag,html[lang="ur"] .btn,
+html[lang="ur"] .whybtn,html[lang="ur"] .spouse-pick button,html[lang="ur"] details.arham summary,
+html[lang="ur"] table.jadwal th,html[lang="ur"] .evid .src,html[lang="ur"] .riblegend,
+html[lang="ur"] footer .disc strong,html[lang="ur"] .fard,html[lang="ur"] .chip,
+html[lang="ur"] select,html[lang="ur"] .field .sm{
+  font-family:var(--ur);letter-spacing:normal;text-transform:none
+}
+html[lang="ur"] h1,html[lang="ur"] h2,html[lang="ur"] h3{letter-spacing:normal}
+html[lang="ur"] .mast h1{font-size:clamp(44px,9vw,80px);line-height:1.5;padding-bottom:.1em}
+html[lang="ur"] .mast .sub{font-size:16px}
+html[lang="ur"] .eyebrow{font-size:13px;line-height:2}
+html[lang="ur"] .step__head h2{font-size:26px;line-height:1.7}
+html[lang="ur"] .step__head .hint{font-size:13.5px;line-height:2}
+html[lang="ur"] table.jadwal th{font-size:12.5px;line-height:1.9}
+html[lang="ur"] .tag,html[lang="ur"] .school,html[lang="ur"] .btn,
+html[lang="ur"] .whybtn,html[lang="ur"] .spouse-pick button{font-size:12.5px;line-height:2}
+html[lang="ur"] .whybtn{font-size:11.5px;padding:2px 9px 6px}
+html[lang="ur"] .marker{font-size:21px;line-height:1}
+html[lang="ur"] .stepper .nm{line-height:1.95;font-size:14px}
+html[lang="ur"] .stepper .nm .ar{font-size:12px;line-height:1.5}
+html[lang="ur"] .heirname{line-height:1.9}
+html[lang="ur"] .fard{font-size:13px;line-height:1.9}
+html[lang="ur"] .seg span{font-family:var(--ur);font-size:11px}
+html[lang="ur"] .evid p{font-style:normal;line-height:2.1}
+html[lang="ur"] .note h3{line-height:1.8}
+html[lang="ur"] .blocked li{line-height:1.9}
+html[lang="ur"] footer .disc strong{font-size:13px}
+
+/* ---------- hindi ---------- */
+html[lang="hi"] body{font-family:var(--hi);font-size:16px;line-height:1.8}
+html[lang="hi"] .eyebrow,html[lang="hi"] .school,html[lang="hi"] .tag,html[lang="hi"] .btn,
+html[lang="hi"] .whybtn,html[lang="hi"] .spouse-pick button,html[lang="hi"] details.arham summary,
+html[lang="hi"] table.jadwal th,html[lang="hi"] .evid .src,html[lang="hi"] .riblegend,
+html[lang="hi"] footer .disc strong,html[lang="hi"] .fard,html[lang="hi"] .chip{
+  font-family:var(--hi);letter-spacing:.03em;text-transform:none
+}
+html[lang="hi"] h1,html[lang="hi"] h2,html[lang="hi"] h3{letter-spacing:normal}
+html[lang="hi"] .mast h1{font-size:clamp(42px,9vw,78px);line-height:1.2}
+html[lang="hi"] .eyebrow{font-size:12.5px}
+html[lang="hi"] table.jadwal th{font-size:12px}
+html[lang="hi"] .tag,html[lang="hi"] .whybtn{font-size:11.5px}
+html[lang="hi"] .fard{font-size:13.5px}
+html[lang="hi"] .marker{font-size:19px}
+html[lang="hi"] .seg span{font-family:var(--hi);font-size:10px}
+
+/* ---------- right-to-left ---------- */
+html[dir="rtl"] table.jadwal th,html[dir="rtl"] table.jadwal td{text-align:left}
+html[dir="rtl"] table.jadwal th:first-child,html[dir="rtl"] table.jadwal td:first-child{text-align:right}
+html[dir="rtl"] tr.eviderow td{text-align:right}
+html[dir="rtl"] .note{border-left:0;border-right:2px solid var(--line);padding:2px 18px 2px 0}
+html[dir="rtl"] .note.case{border-right-color:var(--brass)}
+html[dir="rtl"] .note.madhhab{border-right-color:var(--verdigris)}
+html[dir="rtl"] .note.rule{border-right-color:var(--indigo)}
+html[dir="rtl"] .basecell{border-right:0;border-left:1px solid var(--line)}
+html[dir="rtl"] .stepper{padding:7px 12px 7px 8px}
+html[dir="rtl"] .seg + .seg{border-left:0;border-right:1px solid var(--lapis)}
+html[dir="rtl"] .riblegend i{margin-right:0;margin-left:6px}
+html[dir="rtl"] .basecell .val .old,html[dir="rtl"] .basecell .val .arrow{margin-right:0;margin-left:9px}
+html[dir="rtl"] .field input{direction:ltr;text-align:right}
+html[dir="rtl"] .lrow span:last-child,html[dir="rtl"] .amt,html[dir="rtl"] .units,
+html[dir="rtl"] .pct,html[dir="rtl"] .cnt,html[dir="rtl"] .basecell .val{direction:ltr}
+html[dir="rtl"] .amt .each{direction:rtl;text-align:left}
+@media (max-width:560px){
+  html[dir="rtl"] .basecell{border-left:0;border-bottom:1px solid var(--line)}
+}
+@media print{.langbar{display:none}}
 </style>
 </head>
 <body>
@@ -247,41 +333,42 @@ footer p{max-width:82ch}
 <div class="wrap">
 
 <header class="mast">
-  <div class="eyebrow">ʿilm al-farāʾiḍ &nbsp;·&nbsp; the science of the ordained shares</div>
-  <h1>Mī<span>rāth</span></h1>
-  <p class="sub">Work out how an estate divides among surviving heirs under Sunni law — with the fixed shares, the blocking rules, the arithmetic, and the text each portion rests on.</p>
-  <div class="schools" id="schools" role="group" aria-label="School of law"></div>
+  <div class="langbar" id="langbar" role="group" aria-label="Language" data-i18n-label="ui.langLabel"></div>
+  <div class="eyebrow" data-i18n-html="ui.eyebrow">ʿilm al-farāʾiḍ &nbsp;·&nbsp; the science of the ordained shares</div>
+  <h1 data-i18n-html="ui.brand">Mī<span>rāth</span></h1>
+  <p class="sub" data-i18n="ui.sub">Work out how an estate divides among surviving heirs under Sunni law — with the fixed shares, the blocking rules, the arithmetic, and the text each portion rests on.</p>
+  <div class="schools" id="schools" role="group" aria-label="School of law" data-i18n-label="ui.schoolLabel"></div>
   <p class="school-note" id="schoolNote"></p>
 </header>
 
 <section class="step">
   <div class="step__head">
-    <div class="marker" aria-hidden="true">١</div>
+    <div class="marker" aria-hidden="true" data-i18n="ui.m1">١</div>
     <div>
-      <h2>The estate</h2>
-      <div class="hint">Burial, then debts, then the bequest — heirs are paid last, from what survives all three.</div>
+      <h2 data-i18n="ui.step1.h">The estate</h2>
+      <div class="hint" data-i18n="ui.step1.hint">Burial, then debts, then the bequest — heirs are paid last, from what survives all three.</div>
     </div>
   </div>
   <div class="estate">
     <div class="fields">
       <div class="field">
-        <label for="cur">Currency</label>
+        <label for="cur" data-i18n="ui.f.currency">Currency</label>
         <select id="cur"></select>
       </div>
       <div class="field">
-        <label for="gross">Gross estate<span class="sm">Everything owned at death</span></label>
+        <label for="gross" data-i18n-field="gross">Gross estate<span class="sm">Everything owned at death</span></label>
         <input id="gross" type="text" inputmode="decimal" value="1,000,000">
       </div>
       <div class="field">
-        <label for="funeral">Burial costs<span class="sm">Washing, shrouding, burial</span></label>
+        <label for="funeral" data-i18n-field="funeral">Burial costs<span class="sm">Washing, shrouding, burial</span></label>
         <input id="funeral" type="text" inputmode="decimal" value="0">
       </div>
       <div class="field">
-        <label for="debts">Debts<span class="sm">Owed to people and to Allah</span></label>
+        <label for="debts" data-i18n-field="debts">Debts<span class="sm">Owed to people and to Allah</span></label>
         <input id="debts" type="text" inputmode="decimal" value="0">
       </div>
       <div class="field">
-        <label for="wasiyya">Bequest<span class="sm">Capped at one third; not to an heir</span></label>
+        <label for="wasiyya" data-i18n-field="wasiyya">Bequest<span class="sm">Capped at one third; not to an heir</span></label>
         <input id="wasiyya" type="text" inputmode="decimal" value="0">
       </div>
     </div>
@@ -291,41 +378,41 @@ footer p{max-width:82ch}
 
 <section class="step">
   <div class="step__head">
-    <div class="marker" aria-hidden="true">٢</div>
+    <div class="marker" aria-hidden="true" data-i18n="ui.m2">٢</div>
     <div>
-      <h2>The heirs</h2>
-      <div class="hint">Count only those alive at the moment of death. Nearer relatives bar remoter ones automatically.</div>
+      <h2 data-i18n="ui.step2.h">The heirs</h2>
+      <div class="hint" data-i18n="ui.step2.hint">Count only those alive at the moment of death. Nearer relatives bar remoter ones automatically.</div>
     </div>
   </div>
-  <div class="spouse-pick" id="spousePick" role="group" aria-label="Surviving spouse"></div>
+  <div class="spouse-pick" id="spousePick" role="group" aria-label="Surviving spouse" data-i18n-label="ui.spouseLabel"></div>
   <div id="heirGroups"></div>
   <div class="presets">
-    <span class="eyebrow">Load a classical problem</span>
+    <span class="eyebrow" data-i18n="ui.presets">Load a classical problem</span>
     <div class="chips" id="presets"></div>
   </div>
 </section>
 
 <section class="step" id="resultStep">
   <div class="step__head">
-    <div class="marker" aria-hidden="true">٣</div>
+    <div class="marker" aria-hidden="true" data-i18n="ui.m3">٣</div>
     <div>
-      <h2>The division</h2>
-      <div class="hint">Every share is stated as a fraction of the base, a percentage, and an amount.</div>
+      <h2 data-i18n="ui.step3.h">The division</h2>
+      <div class="hint" data-i18n="ui.step3.hint">Every share is stated as a fraction of the base, a percentage, and an amount.</div>
     </div>
   </div>
   <div id="result"></div>
   <div class="actions">
-    <button class="btn" id="printBtn">Print this division</button>
-    <button class="btn" id="copyBtn">Copy as text</button>
+    <button class="btn" id="printBtn" data-i18n="ui.print">Print this division</button>
+    <button class="btn" id="copyBtn" data-i18n="ui.copy">Copy as text</button>
   </div>
 </section>
 
 <footer>
-  <div class="disc">
+  <div class="disc" data-i18n-html="ui.foot.disc">
     <strong>Read this before relying on it</strong>
     A calculator cannot replace a qualified <em>farāʾiḍī</em> or a competent court. It knows nothing of the facts that decide real estates: who predeceased whom, whether a marriage or lineage is established, jointly held property, an heir barred by homicide or difference of religion, an unborn child, a missing person, an estate settled under a statute that departs from the classical rules. Treat the output as a study aid and have any actual distribution confirmed by a scholar.
   </div>
-  <p>Shares follow the Qurʾan (4:11, 4:12, 4:176), the rulings preserved in the Sunnah, and the settled positions of the Ḥanafī, Mālikī, Shāfiʿī and Ḥanbalī schools. Where the schools diverge — the grandfather against the brothers, the donkey problem, the return of a surplus — switching schools above changes the arithmetic and the reason is stated with the result. Distribution among the distant kindred follows the Ḥanafī <em>ahl al-qarāba</em> method and is the least settled part of the discipline.</p>
+  <p data-i18n-html="ui.foot.p">Shares follow the Qurʾan (4:11, 4:12, 4:176), the rulings preserved in the Sunnah, and the settled positions of the Ḥanafī, Mālikī, Shāfiʿī and Ḥanbalī schools. Where the schools diverge — the grandfather against the brothers, the donkey problem, the return of a surplus — switching schools above changes the arithmetic and the reason is stated with the result. Distribution among the distant kindred follows the Ḥanafī <em>ahl al-qarāba</em> method and is the least settled part of the discipline.</p>
 </footer>
 
 </div>
@@ -397,6 +484,12 @@ const HEIRS = {
   matAunts:   { label: "Mother's sisters",        ar: 'الخالة',         arham: 4, group: 'arham' }
 };
 
+const WHY_EN = {
+  'why.sixth': 'one sixth of the estate',
+  'why.third': 'one third of the remainder',
+  'why.muq':   'sharing as a brother (muq\u0101sama)'
+};
+
 const MALE_ARHAM = { dtrSons: 1, sdChildM: 1, mgf: 1, sisSons: 1, matSibSons: 1, matUncles: 1 };
 
 
@@ -456,60 +549,60 @@ function compute(input) {
   const rawSibs = c.fullBro + c.fullSis + c.patBro + c.patSis + c.matBro + c.matSis;
 
   /* ---------- 1. exclusion (\u1E25ajb) ---------- */
-  if (c.sons > 0) { drop('grandsons', 'Blocked by the son'); drop('granddaughters', 'Blocked by the son'); }
+  if (c.sons > 0) { drop('grandsons', 'blk.son'); drop('granddaughters', 'blk.son'); }
 
   const hasSon = c.sons > 0, hasGs = c.grandsons > 0;
   const maleDesc = hasSon || hasGs;
   const anyDesc = c.sons + c.daughters + c.grandsons + c.granddaughters > 0;
 
-  if (c.mother > 0) { drop('pgm', 'Blocked by the mother'); drop('mgm', 'Blocked by the mother'); }
+  if (c.mother > 0) { drop('pgm', 'blk.mother'); drop('mgm', 'blk.mother'); }
   if (c.father > 0) {
-    drop('pgf', 'Blocked by the father');
-    if (m === 'hanbali' && c.pgm > 0) notes.push({ t: 'madhhab', h: 'Grandmother with the father', b: 'A narration from Im\u0101m A\u1E25mad grants the paternal grandmother a sixth alongside her son. The relied-upon position of all four schools \u2014 applied here \u2014 blocks her.' });
-    drop('pgm', 'Blocked by the father');
+    drop('pgf', 'blk.father');
+    if (m === 'hanbali' && c.pgm > 0) notes.push({ k: 'gmFather', t: 'madhhab', h: 'Grandmother with the father', b: 'A narration from Im\u0101m A\u1E25mad grants the paternal grandmother a sixth alongside her son. The relied-upon position of all four schools \u2014 applied here \u2014 blocks her.' });
+    drop('pgm', 'blk.father');
     ['fullBro','fullSis','patBro','patSis','matBro','matSis','fullNeph','patNeph','fullUncle','patUncle','fullCousin','patCousin']
-      .forEach(k => drop(k, 'Blocked by the father'));
+      .forEach(k => drop(k, 'blk.father'));
   }
-  if (anyDesc) { drop('matBro', 'Blocked by a descendant heir'); drop('matSis', 'Blocked by a descendant heir'); }
+  if (anyDesc) { drop('matBro', 'blk.desc'); drop('matSis', 'blk.desc'); }
   if (maleDesc) {
     ['fullBro','fullSis','patBro','patSis','fullNeph','patNeph','fullUncle','patUncle','fullCousin','patCousin']
-      .forEach(k => drop(k, hasSon ? 'Blocked by the son' : "Blocked by the son's son"));
+      .forEach(k => drop(k, hasSon ? 'blk.son' : 'blk.grandson'));
   }
   if (c.pgf > 0) {
-    drop('matBro', 'Blocked by the grandfather'); drop('matSis', 'Blocked by the grandfather');
-    ['fullNeph','patNeph','fullUncle','patUncle','fullCousin','patCousin'].forEach(k => drop(k, 'Blocked by the grandfather'));
+    drop('matBro', 'blk.pgf'); drop('matSis', 'blk.pgf');
+    ['fullNeph','patNeph','fullUncle','patUncle','fullCousin','patCousin'].forEach(k => drop(k, 'blk.pgf'));
     if (m === 'hanafi') {
       if (c.fullBro + c.fullSis + c.patBro + c.patSis > 0)
-        notes.push({ t: 'madhhab', h: 'Hanaf\u012B: the grandfather bars the siblings', b: 'Ab\u016B \u1E24an\u012Bfa, following Ab\u016B Bakr and Ibn \u02BFAbb\u0101s, treats the grandfather as a father: he excludes every brother and sister. The other three schools follow Zayd b. Th\u0101bit and let the siblings share with him.' });
-      ['fullBro','fullSis','patBro','patSis'].forEach(k => drop(k, 'Blocked by the grandfather (Hanaf\u012B view)'));
+        notes.push({ k: 'gfBarsSibs', t: 'madhhab', h: '\u1E24anaf\u012B: the grandfather bars the siblings', b: 'Ab\u016B \u1E24an\u012Bfa, following Ab\u016B Bakr and Ibn \u02BFAbb\u0101s, treats the grandfather as a father: he excludes every brother and sister. The other three schools follow Zayd b. Th\u0101bit and let the siblings share with him.' });
+      ['fullBro','fullSis','patBro','patSis'].forEach(k => drop(k, 'blk.pgfHanafi'));
     }
   }
-  if (c.fullBro > 0) { drop('patBro', 'Blocked by the full brother'); drop('patSis', 'Blocked by the full brother'); }
+  if (c.fullBro > 0) { drop('patBro', 'blk.fullBro'); drop('patSis', 'blk.fullBro'); }
   if (c.fullBro + c.fullSis + c.patBro + c.patSis > 0) {
     ['fullNeph','patNeph','fullUncle','patUncle','fullCousin','patCousin'].forEach(k => {
-      if (c.fullBro > 0) drop(k, 'Blocked by the full brother');
-      else if (c.patBro > 0) drop(k, 'Blocked by the paternal half-brother');
+      if (c.fullBro > 0) drop(k, 'blk.fullBro');
+      else if (c.patBro > 0) drop(k, 'blk.patBro');
     });
   }
   if (c.granddaughters > 0 && c.daughters >= 2 && c.grandsons === 0)
-    drop('granddaughters', 'Two daughters already take the full two thirds');
+    drop('granddaughters', 'blk.twoDaughters');
 
   /* sisters as residuary with daughters -> they bar the remoter agnates */
   const sisMaAlGhayr = (c.daughters + c.granddaughters > 0);
   if (sisMaAlGhayr && c.fullSis > 0 && c.fullBro === 0) {
-    drop('patSis', 'Blocked by the full sister acting as residuary');
-    drop('patBro', 'Blocked by the full sister acting as residuary');
+    drop('patSis', 'blk.fullSisRes');
+    drop('patBro', 'blk.fullSisRes');
   }
   if (c.fullSis + c.patSis > 0 && sisMaAlGhayr)
-    ['fullNeph','patNeph','fullUncle','patUncle','fullCousin','patCousin'].forEach(k => drop(k, 'Blocked by the sister acting as residuary'));
+    ['fullNeph','patNeph','fullUncle','patUncle','fullCousin','patCousin'].forEach(k => drop(k, 'blk.sisRes'));
   if (c.fullSis >= 2 && c.patSis > 0 && c.patBro === 0 && !sisMaAlGhayr)
-    drop('patSis', 'Two full sisters already take the two thirds');
+    drop('patSis', 'blk.twoFullSis');
 
-  if (c.fullNeph > 0) { drop('patNeph', "Blocked by the full brother's son"); }
-  if (c.fullNeph + c.patNeph > 0) ['fullUncle','patUncle','fullCousin','patCousin'].forEach(k => drop(k, "Blocked by the brother's son"));
-  if (c.fullUncle > 0) drop('patUncle', 'Blocked by the full paternal uncle');
-  if (c.fullUncle + c.patUncle > 0) ['fullCousin','patCousin'].forEach(k => drop(k, 'Blocked by the paternal uncle'));
-  if (c.fullCousin > 0) drop('patCousin', "Blocked by the full uncle's son");
+  if (c.fullNeph > 0) { drop('patNeph', 'blk.fullNeph'); }
+  if (c.fullNeph + c.patNeph > 0) ['fullUncle','patUncle','fullCousin','patCousin'].forEach(k => drop(k, 'blk.neph'));
+  if (c.fullUncle > 0) drop('patUncle', 'blk.fullUncle');
+  if (c.fullUncle + c.patUncle > 0) ['fullCousin','patCousin'].forEach(k => drop(k, 'blk.uncle'));
+  if (c.fullCousin > 0) drop('patCousin', 'blk.fullCousin');
 
   /* ---------- 2. fixed shares (fur\u016B\u1E0D) ---------- */
   // share: key -> Fr  |  label: printed fard name  |  kind: fard/asabah/both/radd/arham
@@ -536,26 +629,26 @@ function compute(input) {
     else if (c.father && spouse && rawSibs < 2) {
       umariyya = true;
       const rem = F1.sub(share[spouse]);
-      put('mother', rem.mul(fr(1,3)), '1/3 of remainder');
+      put('mother', rem.mul(fr(1,3)), 'f.thirdRem');
     } else put('mother', fr(1,3), '1/3');
   }
   const gmCount = c.pgm + c.mgm;
   if (gmCount > 0) {
-    if (c.pgm) put('pgm', fr(1, 6 * gmCount), gmCount > 1 ? '1/6 shared' : '1/6');
-    if (c.mgm) put('mgm', fr(1, 6 * gmCount), gmCount > 1 ? '1/6 shared' : '1/6');
+    if (c.pgm) put('pgm', fr(1, 6 * gmCount), gmCount > 1 ? 'f.sixthShared' : '1/6');
+    if (c.mgm) put('mgm', fr(1, 6 * gmCount), gmCount > 1 ? 'f.sixthShared' : '1/6');
   }
 
   const utr = c.matBro + c.matSis;
   if (utr > 0) {
     const tot = utr === 1 ? fr(1,6) : fr(1,3);
-    if (c.matBro) put('matBro', tot.mul(fr(c.matBro, utr)), utr === 1 ? '1/6' : '1/3 shared');
-    if (c.matSis) put('matSis', tot.mul(fr(c.matSis, utr)), utr === 1 ? '1/6' : '1/3 shared');
+    if (c.matBro) put('matBro', tot.mul(fr(c.matBro, utr)), utr === 1 ? '1/6' : 'f.thirdShared');
+    if (c.matSis) put('matSis', tot.mul(fr(c.matSis, utr)), utr === 1 ? '1/6' : 'f.thirdShared');
   }
 
   if (c.father) {
     if (maleDesc) put('father', fr(1,6), '1/6');
-    else if (femDescHeir) put('father', fr(1,6), '1/6 + residue', 'both');
-    else put('father', F0, 'residue', 'asabah');
+    else if (femDescHeir) put('father', fr(1,6), 'f.sixthPlusResidue', 'both');
+    else put('father', F0, 'f.residue', 'asabah');
   }
 
   /* sisters' fixed shares, only when no brother of their own kind and no residuary role */
@@ -570,8 +663,8 @@ function compute(input) {
   /* ---------- 3. named special cases ---------- */
   let caseName = null;
   if (umariyya) {
-    caseName = 'al-\u02BFUmariyyat\u0101n';
-    notes.push({ t: 'case', h: 'al-\u02BFUmariyyat\u0101n (the two \u02BFUmar cases)', b: 'With only a spouse, the mother and the father surviving, \u02BFUmar b. al-Kha\u1E6D\u1E6D\u0101b ruled that the mother takes a third of what remains after the spouse, not a third of the whole \u2014 so the father is never left with less than double her portion. All four schools follow this. Ibn \u02BFAbb\u0101s dissented, giving her a third of the entire estate.' });
+    caseName = 'case.umariyya';
+    notes.push({ k: 'umariyya', t: 'case', h: 'al-\u02BFUmariyyat\u0101n (the two \u02BFUmar cases)', b: 'With only a spouse, the mother and the father surviving, \u02BFUmar b. al-Kha\u1E6D\u1E6D\u0101b ruled that the mother takes a third of what remains after the spouse, not a third of the whole \u2014 so the father is never left with less than double her portion. All four schools follow this. Ibn \u02BFAbb\u0101s dissented, giving her a third of the entire estate.' });
   }
 
   const akdCond = m !== 'hanafi' && c.husband === 1 && c.mother === 1 && c.pgf === 1 &&
@@ -586,56 +679,56 @@ function compute(input) {
   const sibsWithGf = c.fullBro + c.fullSis + c.patBro + c.patSis;
   if (c.pgf && !c.father) {
     if (akdCond) {
-      caseName = 'al-Akdariyya';
+      caseName = 'case.akdariyya';
       const sisKey = c.fullSis ? 'fullSis' : 'patSis';
       put('husband', fr(9,27), '1/2 \u2192 9/27');
       put('mother',  fr(6,27), '1/3 \u2192 6/27');
-      put('pgf',     fr(8,27), '1/6 + share', 'both');
+      put('pgf',     fr(8,27), 'f.sixthPlusShare', 'both');
       put(sisKey,    fr(4,27), '1/2 \u2192 4/27', 'both');
       gfHandled = true;
-      notes.push({ t: 'case', h: 'al-Akdariyya', b: 'The most famous single problem in the discipline. The sister is first given her half, the shares are raised by \u02BFawl to nine, then the grandfather and the sister pool their portions and re-divide them two to one. The base becomes twenty-seven. Ab\u016B \u1E24an\u012Bfa rejects the whole construction: for him the sister is simply barred and the grandfather takes a sixth.' });
+      notes.push({ k: 'akdariyya', t: 'case', h: 'al-Akdariyya', b: 'The most famous single problem in the discipline. The sister is first given her half, the shares are raised by \u02BFawl to nine, then the grandfather and the sister pool their portions and re-divide them two to one. The base becomes twenty-seven. Ab\u016B \u1E24an\u012Bfa rejects the whole construction: for him the sister is simply barred and the grandfather takes a sixth.' });
     } else if (sibsWithGf > 0 && m !== 'hanafi') {
       let others = F0;
       for (const k in share) if (k !== 'pgf' && !['fullBro','fullSis','patBro','patSis'].includes(k)) others = others.add(share[k]);
       const R = F1.sub(others);
       if (R.cmp(fr(1,6)) <= 0) {
         put('pgf', fr(1,6), '1/6');
-        ['fullBro','fullSis','patBro','patSis'].forEach(k => drop(k, 'Nothing remains after the grandfather\u2019s guaranteed sixth'));
-        notes.push({ t: 'rule', h: 'The grandfather\u2019s guaranteed sixth', b: 'The fixed shares leave less than a sixth of the estate. A sixth is the grandfather\u2019s floor and he takes it in full even where that forces the shares to overflow; the siblings, who inherit only from a residue, receive nothing.' });
+        ['fullBro','fullSis','patBro','patSis'].forEach(k => drop(k, 'blk.gfSixth'));
+        notes.push({ k: 'gfSixth', t: 'rule', h: 'The grandfather\u2019s guaranteed sixth', b: 'The fixed shares leave less than a sixth of the estate. A sixth is the grandfather\u2019s floor and he takes it in full even where that forces the shares to overflow; the siblings, who inherit only from a residue, receive nothing.' });
       } else {
         const heads = 2 * (c.fullBro + c.patBro) + (c.fullSis + c.patSis);
         const optSixth = fr(1,6);
         const optThird = R.mul(fr(1,3));
         const optMuq   = R.mul(fr(2, heads + 2));
-        let best = optSixth, why = 'one sixth of the estate';
-        if (optThird.cmp(best) > 0) { best = optThird; why = 'one third of the remainder'; }
-        if (optMuq.cmp(best) > 0)   { best = optMuq;   why = 'sharing as a brother (muq\u0101sama)'; }
-        put('pgf', best, '1/6 \u2223 1/3 rem \u2223 muq\u0101sama', 'both');
+        let best = optSixth, why = 'why.sixth';
+        if (optThird.cmp(best) > 0) { best = optThird; why = 'why.third'; }
+        if (optMuq.cmp(best) > 0)   { best = optMuq;   why = 'why.muq'; }
+        put('pgf', best, 'f.gfBest', 'both');
         const left = R.sub(best);
         const sHeads = 2 * (c.fullBro + c.patBro) + (c.fullSis + c.patSis);
         if (c.fullBro + c.fullSis > 0) {
           const fh = 2 * c.fullBro + c.fullSis;
-          if (c.fullBro > 0) put('fullBro', left.mul(fr(2 * c.fullBro, fh)), 'residue 2:1', 'asabah');
-          if (c.fullSis > 0) put('fullSis', left.mul(fr(c.fullSis, fh)), 'residue 2:1', 'asabah');
+          if (c.fullBro > 0) put('fullBro', left.mul(fr(2 * c.fullBro, fh)), 'f.residue21', 'asabah');
+          if (c.fullSis > 0) put('fullSis', left.mul(fr(c.fullSis, fh)), 'f.residue21', 'asabah');
           if (c.patBro + c.patSis > 0) {
-            drop('patBro', 'Counted against the grandfather, then absorbed by the full siblings');
-            drop('patSis', 'Counted against the grandfather, then absorbed by the full siblings');
+            drop('patBro', 'blk.gfAbsorb');
+            drop('patSis', 'blk.gfAbsorb');
           }
         } else {
           const ph = 2 * c.patBro + c.patSis;
-          if (c.patBro > 0) put('patBro', left.mul(fr(2 * c.patBro, ph)), 'residue 2:1', 'asabah');
-          if (c.patSis > 0) put('patSis', left.mul(fr(c.patSis, ph)), 'residue 2:1', 'asabah');
+          if (c.patBro > 0) put('patBro', left.mul(fr(2 * c.patBro, ph)), 'f.residue21', 'asabah');
+          if (c.patSis > 0) put('patSis', left.mul(fr(c.patSis, ph)), 'f.residue21', 'asabah');
         }
         gfHandled = true;
-        notes.push({ t: 'madhhab', h: 'Grandfather sharing with the siblings', b: 'Following Zayd b. Th\u0101bit, the grandfather takes whichever is largest of three: a sixth of the estate, a third of what remains after the fixed shares, or an ordinary brother\u2019s portion. Here ' + why + ' gave him the most. Paternal half-siblings are counted in that reckoning to enlarge the competition against him, but any portion falling to them reverts to the full siblings.' });
+        notes.push({ k: 'gfShare', p: { why: why }, t: 'madhhab', h: 'Grandfather sharing with the siblings', b: 'Following Zayd b. Th\u0101bit, the grandfather takes whichever is largest of three: a sixth of the estate, a third of what remains after the fixed shares, or an ordinary brother\u2019s portion. Here ' + WHY_EN[why] + ' gave him the most. Paternal half-siblings are counted in that reckoning to enlarge the competition against him, but any portion falling to them reverts to the full siblings.' });
       }
       gfHandled = true;
     }
   }
   if (c.pgf && !c.father && !gfHandled) {
     if (maleDesc) put('pgf', fr(1,6), '1/6');
-    else if (femDescHeir) put('pgf', fr(1,6), '1/6 + residue', 'both');
-    else put('pgf', F0, 'residue', 'asabah');
+    else if (femDescHeir) put('pgf', fr(1,6), 'f.sixthPlusResidue', 'both');
+    else put('pgf', F0, 'f.residue', 'asabah');
   }
 
   /* mushtaraka */
@@ -643,18 +736,18 @@ function compute(input) {
       utr >= 2 && c.fullBro > 0 && !anyDesc && c.father === 0 && c.pgf === 0) {
     let s = F0; for (const k in share) if (!['fullBro','fullSis'].includes(k)) s = s.add(share[k]);
     if (s.cmp(F1) >= 0) {
-      caseName = 'al-Mushtaraka';
+      caseName = 'case.mushtaraka';
       const heads = utr + c.fullBro + c.fullSis;
       const pot = fr(1,3);
-      if (c.matBro) put('matBro', pot.mul(fr(c.matBro, heads)), 'shared 1/3');
-      if (c.matSis) put('matSis', pot.mul(fr(c.matSis, heads)), 'shared 1/3');
-      put('fullBro', pot.mul(fr(c.fullBro, heads)), 'joins the 1/3', 'fard');
-      if (c.fullSis) put('fullSis', pot.mul(fr(c.fullSis, heads)), 'joins the 1/3', 'fard');
-      notes.push({ t: 'case', h: 'al-Mushtaraka (also al-\u1E24im\u0101riyya)', b: '\u02BFUmar first left the full brothers with nothing, until one protested: \u201CSuppose our father were a donkey \u2014 are we not still children of the same mother?\u201D He reversed himself. M\u0101lik and al-Sh\u0101fi\u02BF\u012B follow that reversal and let the full siblings share the maternal third equally. Ab\u016B \u1E24an\u012Bfa and A\u1E25mad hold to the first ruling: nothing remains, so they take nothing.' });
+      if (c.matBro) put('matBro', pot.mul(fr(c.matBro, heads)), 'f.sharedThird');
+      if (c.matSis) put('matSis', pot.mul(fr(c.matSis, heads)), 'f.sharedThird');
+      put('fullBro', pot.mul(fr(c.fullBro, heads)), 'f.joinsThird', 'fard');
+      if (c.fullSis) put('fullSis', pot.mul(fr(c.fullSis, heads)), 'f.joinsThird', 'fard');
+      notes.push({ k: 'mushtaraka', t: 'case', h: 'al-Mushtaraka (also al-\u1E24im\u0101riyya)', b: '\u02BFUmar first left the full brothers with nothing, until one protested: \u201CSuppose our father were a donkey \u2014 are we not still children of the same mother?\u201D He reversed himself. M\u0101lik and al-Sh\u0101fi\u02BF\u012B follow that reversal and let the full siblings share the maternal third equally. Ab\u016B \u1E24an\u012Bfa and A\u1E25mad hold to the first ruling: nothing remains, so they take nothing.' });
     }
   } else if ((m === 'hanafi' || m === 'hanbali') && c.husband === 1 && c.mother === 1 &&
              utr >= 2 && c.fullBro > 0 && !anyDesc && c.father === 0 && c.pgf === 0) {
-    notes.push({ t: 'madhhab', h: 'The donkey problem', b: 'The fixed shares consume the whole estate and the full brothers, being residuaries, receive nothing. M\u0101lik and al-Sh\u0101fi\u02BF\u012B would instead let them share the maternal third equally \u2014 the case known as al-Mushtaraka.' });
+    notes.push({ k: 'donkey', t: 'madhhab', h: 'The donkey problem', b: 'The fixed shares consume the whole estate and the full brothers, being residuaries, receive nothing. M\u0101lik and al-Sh\u0101fi\u02BF\u012B would instead let them share the maternal third equally \u2014 the case known as al-Mushtaraka.' });
   }
 
   /* ---------- 5. base, \u02BFawl ---------- */
@@ -663,7 +756,7 @@ function compute(input) {
   let sumN = 0;
   for (const k in share) sumN += share[k].n * (denom / share[k].d);
 
-  let base = denom, awl = null, radd = false, raddNote = null;
+  let base = denom, awl = null, radd = false, raddNote = null, raddKey = null;
   const asabahOrder = [
     ['sons', ['daughters']],
     ['grandsons', ['granddaughters']],
@@ -692,21 +785,21 @@ function compute(input) {
     else if (c.pgf > 0 && !gfHandled) { share.pgf = (share.pgf || F0).add(residue); kind.pgf = 'both'; assigned = true; }
     else if (c.fullBro > 0 && !gfHandled) { splitAgnate('fullBro', 'fullSis'); assigned = true; }
     else if (c.patBro > 0 && !gfHandled) { splitAgnate('patBro', 'patSis'); assigned = true; }
-    else if (sisMaAlGhayr && c.fullSis > 0) { share.fullSis = residue; label.fullSis = 'residue with daughters'; kind.fullSis = 'asabah'; assigned = true;
-      notes.push({ t: 'rule', h: '\u02BFA\u1E63abah ma\u02BFa al-ghayr', b: 'A sister inheriting alongside a daughter or son\u2019s daughter stops taking a fixed fraction and becomes a residuary \u2014 she receives whatever is left. Ibn Mas\u02BF\u016Bd reported the Prophet \uFDFA ruling exactly this way.' }); }
-    else if (sisMaAlGhayr && c.patSis > 0) { share.patSis = residue; label.patSis = 'residue with daughters'; kind.patSis = 'asabah'; assigned = true; }
+    else if (sisMaAlGhayr && c.fullSis > 0) { share.fullSis = residue; label.fullSis = 'f.residueWithDaughters'; kind.fullSis = 'asabah'; assigned = true;
+      notes.push({ k: 'maAlGhayr', t: 'rule', h: '\u02BFA\u1E63abah ma\u02BFa al-ghayr', b: 'A sister inheriting alongside a daughter or son\u2019s daughter stops taking a fixed fraction and becomes a residuary \u2014 she receives whatever is left. Ibn Mas\u02BF\u016Bd reported the Prophet \uFDFA ruling exactly this way.' }); }
+    else if (sisMaAlGhayr && c.patSis > 0) { share.patSis = residue; label.patSis = 'f.residueWithDaughters'; kind.patSis = 'asabah'; assigned = true; }
     else {
       for (const k of ['fullNeph','patNeph','fullUncle','patUncle','fullCousin','patCousin']) {
-        if (c[k] > 0) { share[k] = residue; label[k] = 'residue'; kind[k] = 'asabah'; assigned = true; break; }
+        if (c[k] > 0) { share[k] = residue; label[k] = 'f.residue'; kind[k] = 'asabah'; assigned = true; break; }
       }
     }
 
     function splitAgnate(mk, fk) {
       const heads = 2 * c[mk] + (c[fk] || 0);
       share[mk] = residue.mul(fr(2 * c[mk], heads));
-      label[mk] = c[fk] ? 'residue, 2 shares each' : 'residue';
+      label[mk] = c[fk] ? 'f.residue2each' : 'f.residue';
       kind[mk] = 'asabah';
-      if (c[fk]) { share[fk] = residue.mul(fr(c[fk], heads)); label[fk] = 'residue, 1 share each'; kind[fk] = 'asabah'; }
+      if (c[fk]) { share[fk] = residue.mul(fr(c[fk], heads)); label[fk] = 'f.residue1each'; kind[fk] = 'asabah'; }
     }
 
     if (!assigned) {
@@ -720,6 +813,7 @@ function compute(input) {
         const pool = F1.sub(spShare);
         let tot = F0; nonSpouse.forEach(k => tot = tot.add(share[k]));
         nonSpouse.forEach(k => { share[k] = pool.mul(share[k]).div(tot); if (kind[k] === 'fard') kind[k] = 'radd'; });
+        raddKey = (m === 'maliki' || m === 'shafii') ? 'raddTreasury' : 'raddNormal';
         raddNote = (m === 'maliki' || m === 'shafii')
           ? 'Classically M\u0101lik and al-Sh\u0101fi\u02BF\u012B send the surplus to the public treasury rather than back to the heirs. Where no such treasury operates on Islamic terms \u2014 the situation nearly everywhere today \u2014 later scholars of both schools apply radd, as done here.'
           : 'The surplus returns to the fixed sharers in proportion to their shares. A spouse is never included in the return; only blood relatives are.';
@@ -731,15 +825,16 @@ function compute(input) {
         let heads = 0; inClass.forEach(k => heads += c[k] * (MALE_ARHAM[k] ? 2 : 1));
         inClass.forEach(k => { arham[k] = pool.mul(fr(c[k] * (MALE_ARHAM[k] ? 2 : 1), heads)); });
         anyArham.filter(k => HEIRS[k].arham !== arhamClass)
-          .forEach(k => excluded.push({ key: k, label: nameOf(k, c[k]), count: c[k], reason: 'A nearer class of distant kindred inherits first' }));
-        notes.push({ t: 'rule', h: 'Dhaw\u016B al-ar\u1E25\u0101m \u2014 the distant kindred', b: 'No fixed sharer and no agnate survives, so the estate passes to relatives connected through a female line. They are ranked in four classes and the nearest class takes everything. Distribution within a class is contested: the method used here is the \u1E24anaf\u012B ahl al-qar\u0101ba approach with the male taking twice the female. M\u0101lik and al-Sh\u0101fi\u02BF\u012B classically deny them any share at all. Have any dhaw\u016B al-ar\u1E25\u0101m result checked by a qualified far\u0101\u02BEi\u1E0D\u012B before acting on it.' });
+          .forEach(k => excluded.push({ key: k, label: nameOf(k, c[k]), count: c[k], reason: 'blk.nearerArham' }));
+        notes.push({ k: 'arham', t: 'rule', h: 'Dhaw\u016B al-ar\u1E25\u0101m \u2014 the distant kindred', b: 'No fixed sharer and no agnate survives, so the estate passes to relatives connected through a female line. They are ranked in four classes and the nearest class takes everything. Distribution within a class is contested: the method used here is the \u1E24anaf\u012B ahl al-qar\u0101ba approach with the male taking twice the female. M\u0101lik and al-Sh\u0101fi\u02BF\u012B classically deny them any share at all. Have any dhaw\u016B al-ar\u1E25\u0101m result checked by a qualified far\u0101\u02BEi\u1E0D\u012B before acting on it.' });
       } else if (spouse) {
         radd = true;
         share[spouse] = F1; kind[spouse] = 'radd';
+        raddKey = 'raddSpouse';
         raddNote = 'No blood relative survives. The surplus above the spouse\u2019s fixed share would classically go to the public treasury; contemporary practice in the absence of such a treasury returns it to the surviving spouse.';
       }
     }
-    if (raddNote) notes.push({ t: 'rule', h: 'Radd \u2014 the return of the surplus', b: raddNote });
+    if (raddNote) notes.push({ k: raddKey, t: 'rule', h: 'Radd \u2014 the return of the surplus', b: raddNote });
     /* recompute base after residue/radd */
     denom = 1;
     for (const k in share) if (!share[k].isZero()) denom = lcm(denom, share[k].d);
@@ -747,7 +842,7 @@ function compute(input) {
     base = denom;
   }
 
-  if (awl) notes.push({ t: 'rule', h: '\u02BFAwl \u2014 the shares overflow', b: 'The fixed fractions add up to more than the whole estate. \u02BFUmar b. al-Kha\u1E6D\u1E6D\u0101b, on the advice of al-\u02BF Abb\u0101s, resolved this by raising the denominator so every heir is reduced by the same proportion rather than one heir absorbing the entire shortfall. The base rose from ' + denom + ' to ' + awl + '.' });
+  if (awl) notes.push({ k: 'awl', p: { from: denom, to: awl }, t: 'rule', h: '\u02BFAwl \u2014 the shares overflow', b: 'The fixed fractions add up to more than the whole estate. \u02BFUmar b. al-Kha\u1E6D\u1E6D\u0101b, on the advice of al-\u02BF Abb\u0101s, resolved this by raising the denominator so every heir is reduced by the same proportion rather than one heir absorbing the entire shortfall. The base rose from ' + denom + ' to ' + awl + '.' });
 
   /* ---------- 6. money ---------- */
   const gross = num(input.gross), funeral = num(input.funeral), debts = num(input.debts);
@@ -757,7 +852,7 @@ function compute(input) {
   const wasiyya = Math.min(wasiyyaAsked, wasiyyaCap);
   const capped = wasiyyaAsked > wasiyyaCap + 1e-9;
   const net = Math.max(0, afterDebt - wasiyya);
-  if (capped) notes.push({ t: 'rule', h: 'Bequest capped at one third', b: 'Sa\u02BFd b. Ab\u012B Waqq\u0101\u1E63 asked to will away two thirds of his wealth, then a half. The Prophet \uFDFA refused both and said: \u201CA third \u2014 and a third is a great deal. To leave your heirs wealthy is better than to leave them begging.\u201D (Bukh\u0101r\u012B 2742, Muslim 1628). ' + fmtn(wasiyyaAsked) + ' was requested; ' + fmtn(wasiyya) + ' is the most that may be honoured.' });
+  if (capped) notes.push({ k: 'wasiyyaCap', p: { asked: fmtn(wasiyyaAsked), max: fmtn(wasiyya) }, t: 'rule', h: 'Bequest capped at one third', b: 'Sa\u02BFd b. Ab\u012B Waqq\u0101\u1E63 asked to will away two thirds of his wealth, then a half. The Prophet \uFDFA refused both and said: \u201CA third \u2014 and a third is a great deal. To leave your heirs wealthy is better than to leave them begging.\u201D (Bukh\u0101r\u012B 2742, Muslim 1628). ' + fmtn(wasiyyaAsked) + ' was requested; ' + fmtn(wasiyya) + ' is the most that may be honoured.' });
 
   /* ---------- 7. rows ---------- */
   const rows = [];
@@ -767,7 +862,7 @@ function compute(input) {
     if (!share[k] || share[k].isZero() || c[k] === 0) continue;
     rows.push(mkRow(k, share[k], label[k], kind[k]));
   }
-  for (const k in arham) rows.push(mkRow(k, arham[k], 'distant kindred', 'arham'));
+  for (const k in arham) rows.push(mkRow(k, arham[k], 'f.arham', 'arham'));
 
   function mkRow(k, f, lab, t) {
     const totalUnits = Math.round(f.n * (base / f.d));
@@ -778,7 +873,8 @@ function compute(input) {
       pct: f.val() * 100,
       amount: f.val() * net,
       perHead: f.val() * net / c[k],
-      evidence: t === 'arham' ? EV_ARHAM : (EV[k] || EV_ARHAM)
+      evidence: t === 'arham' ? EV_ARHAM : (EV[k] || EV_ARHAM),
+      evKey: (t === 'arham' || !EV[k]) ? 'arham' : k
     };
   }
 
@@ -798,13 +894,485 @@ function compute(input) {
 function num(x) { const v = parseFloat(String(x == null ? 0 : x).replace(/[^0-9.\-]/g, '')); return isFinite(v) && v > 0 ? v : 0; }
 function fmtn(v) { return v.toLocaleString(undefined, { maximumFractionDigits: 2 }); }
 
+/* ============================================================
+   LANGUAGES  —  English · اردو · हिन्दी
+   ------------------------------------------------------------
+   tr(key) looks in the active language, then English, then
+   returns the key itself — so bare fractions such as '1/2'
+   pass straight through. The long prose kept in English above
+   (EV, note bodies) is the source text; ur and hi override it
+   through trOr()/noteTx() instead of duplicating it here.
+   ============================================================ */
+const I18N = {
+
+en: {
+  'ui.pageTitle':'Mīrāth — Islamic Inheritance Calculator',
+  'ui.brand':'Mī<span>rāth</span>',
+  'ui.eyebrow':'ʿilm al-farāʾiḍ &nbsp;·&nbsp; the science of the ordained shares',
+  'ui.sub':'Work out how an estate divides among surviving heirs under Sunni law — with the fixed shares, the blocking rules, the arithmetic, and the text each portion rests on.',
+  'ui.langLabel':'Language','ui.schoolLabel':'School of law','ui.spouseLabel':'Surviving spouse',
+  'ui.m1':'١','ui.m2':'٢','ui.m3':'٣',
+  'ui.step1.h':'The estate',
+  'ui.step1.hint':'Burial, then debts, then the bequest — heirs are paid last, from what survives all three.',
+  'ui.f.currency':'Currency',
+  'ui.f.gross':'Gross estate','ui.f.gross.sm':'Everything owned at death',
+  'ui.f.funeral':'Burial costs','ui.f.funeral.sm':'Washing, shrouding, burial',
+  'ui.f.debts':'Debts','ui.f.debts.sm':'Owed to people and to Allah',
+  'ui.f.wasiyya':'Bequest','ui.f.wasiyya.sm':'Capped at one third; not to an heir',
+  'ui.led.head':'What reaches the heirs',
+  'ui.led.gross':'Gross estate','ui.led.funeral':'Burial costs','ui.led.debts':'Debts',
+  'ui.led.after':'After obligations','ui.led.wasiyya':'Bequest paid',
+  'ui.led.cap':'Most the bequest may be','ui.led.capval':'one third = {v}',
+  'ui.led.net':'Divided among the heirs',
+  'ui.step2.h':'The heirs',
+  'ui.step2.hint':'Count only those alive at the moment of death. Nearer relatives bar remoter ones automatically.',
+  'ui.wivesHead':'Wives — the eighth or the quarter is shared between them',
+  'ui.arham.sum':'Distant kindred (dhawū al-arḥām)',
+  'ui.arham.why':'Relatives linked through a female line. They inherit only when no fixed sharer besides a spouse and no male agnate survives. Leave these at zero unless that is the situation.',
+  'ui.presets':'Load a classical problem','ui.clear':'Clear everything',
+  'ui.minus':'One fewer {n}','ui.plus':'One more {n}',
+  'ui.step3.h':'The division',
+  'ui.step3.hint':'Every share is stated as a fraction of the base, a percentage, and an amount.',
+  'ui.print':'Print this division','ui.copy':'Copy as text','ui.copied':'Copied',
+  'ui.base':'aṣl al-masʾala · the base',
+  'ui.base.awl':'raised by ʿawl','ui.base.ok':'shares fit the estate exactly',
+  'ui.tag.awl':'ʿawl to {n}','ui.tag.radd':'radd','ui.tag.arham':'dhawū al-arḥām',
+  'ui.tag.ok':'shares balance','ui.tag.school':'{s} school',
+  'ui.th.heir':'Heir','ui.th.count':'How many','ui.th.ent':'Entitlement',
+  'ui.th.units':'Of {n}','ui.th.share':'Share','ui.th.amount':'Amount',
+  'ui.why':'Why','ui.close':'Close','ui.each':'{v} each',
+  'ui.empty.blocked.h':'Everyone named is barred',
+  'ui.empty.blocked.b':'Each relative you entered is excluded by someone nearer. Add a surviving heir who is not blocked, or check the list below.',
+  'ui.empty.none.h':'No heirs yet',
+  'ui.empty.none.b':'Add at least one surviving relative above, or load one of the classical problems to see how the arithmetic works.',
+  'ui.blocked':'Barred from inheriting · ḥajb',
+  'ui.foot.disc':'<strong>Read this before relying on it</strong>\n    A calculator cannot replace a qualified <em>farāʾiḍī</em> or a competent court. It knows nothing of the facts that decide real estates: who predeceased whom, whether a marriage or lineage is established, jointly held property, an heir barred by homicide or difference of religion, an unborn child, a missing person, an estate settled under a statute that departs from the classical rules. Treat the output as a study aid and have any actual distribution confirmed by a scholar.',
+  'ui.foot.p':'Shares follow the Qurʾan (4:11, 4:12, 4:176), the rulings preserved in the Sunnah, and the settled positions of the Ḥanafī, Mālikī, Shāfiʿī and Ḥanbalī schools. Where the schools diverge — the grandfather against the brothers, the donkey problem, the return of a surplus — switching schools above changes the arithmetic and the reason is stated with the result. Distribution among the distant kindred follows the Ḥanafī <em>ahl al-qarāba</em> method and is the least settled part of the discipline.',
+  'ui.copy.title':'DIVISION OF THE ESTATE — {s} school',
+  'ui.copy.line1':'Gross {g}  |  burial {f}  |  debts {d}  |  bequest {w}',
+  'ui.copy.net':'Divided among the heirs: {v}',
+  'ui.copy.base':'Base {v}','ui.copy.baseAwl':'{a} raised by awl to {b}','ui.copy.barred':'Barred:',
+
+  'sch.hanafi':'Ḥanafī',
+  'sch.hanafi.d':'Abū Ḥanīfa treats the grandfather as a father: he bars every brother and sister. A surplus returns to the blood heirs. Predominant in Turkey, the Levant, Egypt and South Asia.',
+  'sch.maliki':'Mālikī',
+  'sch.maliki.d':'Following Zayd b. Thābit, the grandfather competes with the siblings. In the donkey problem the full brothers join the maternal third. Predominant in North and West Africa.',
+  'sch.shafii':'Shāfiʿī',
+  'sch.shafii.d':'As with Mālik, the grandfather shares with the siblings and the full brothers join the maternal third. Predominant in Egypt, the Hijaz, East Africa and Southeast Asia.',
+  'sch.hanbali':'Ḥanbalī',
+  'sch.hanbali.d':'The grandfather shares with the siblings, but in the donkey problem the full brothers take nothing. The reference school of the Saudi courts.',
+
+  'grp.desc':'Children and their children','grp.asc':'Parents and grandparents',
+  'grp.sib':'Brothers and sisters','grp.coll':'Nephews, uncles, cousins',
+
+  'sp.none':'No spouse','sp.husband':'Husband','sp.wives':'Wife or wives',
+
+  'pr.wife2d':'Wife, two daughters, both parents','pr.umariyya':'The two ʿUmar cases',
+  'pr.akdariyya':'al-Akdariyya','pr.donkey':'The donkey problem',
+  'pr.gfBros':'Grandfather against four brothers','pr.radd':'A surplus returned',
+  'pr.sisRes':'Sister as residuary','pr.arham':'Only distant kindred',
+
+  'kn.fard':'fixed share','kn.asabah':'residue','kn.radd':'returned surplus','kn.arham':'distant kindred',
+
+  'f.residue':'residue','f.residue21':'residue 2:1','f.residue2each':'residue, 2 shares each',
+  'f.residue1each':'residue, 1 share each','f.residueWithDaughters':'residue with daughters',
+  'f.sixthPlusResidue':'1/6 + residue','f.sixthPlusShare':'1/6 + share','f.thirdRem':'1/3 of remainder',
+  'f.sixthShared':'1/6 shared','f.thirdShared':'1/3 shared','f.sharedThird':'shared 1/3',
+  'f.joinsThird':'joins the 1/3','f.gfBest':'1/6 ∣ 1/3 rem ∣ muqāsama','f.arham':'distant kindred',
+
+  'blk.son':'Blocked by the son','blk.grandson':"Blocked by the son's son",
+  'blk.mother':'Blocked by the mother','blk.father':'Blocked by the father',
+  'blk.desc':'Blocked by a descendant heir','blk.pgf':'Blocked by the grandfather',
+  'blk.pgfHanafi':'Blocked by the grandfather (Ḥanafī view)','blk.fullBro':'Blocked by the full brother',
+  'blk.patBro':'Blocked by the paternal half-brother','blk.twoDaughters':'Two daughters already take the full two thirds',
+  'blk.fullSisRes':'Blocked by the full sister acting as residuary','blk.sisRes':'Blocked by the sister acting as residuary',
+  'blk.twoFullSis':'Two full sisters already take the two thirds','blk.fullNeph':"Blocked by the full brother's son",
+  'blk.neph':"Blocked by the brother's son",'blk.fullUncle':'Blocked by the full paternal uncle',
+  'blk.uncle':'Blocked by the paternal uncle','blk.fullCousin':"Blocked by the full uncle's son",
+  'blk.gfSixth':'Nothing remains after the grandfather’s guaranteed sixth',
+  'blk.gfAbsorb':'Counted against the grandfather, then absorbed by the full siblings',
+  'blk.nearerArham':'A nearer class of distant kindred inherits first',
+
+  'case.umariyya':'al-ʿUmariyyatān','case.akdariyya':'al-Akdariyya','case.mushtaraka':'al-Mushtaraka',
+  'why.sixth':'one sixth of the estate','why.third':'one third of the remainder','why.muq':'sharing as a brother (muqāsama)'
+},
+
+/* ------------------------------------------------------------ اردو */
+ur: {
+  'ui.pageTitle':'میراث — اسلامی وراثت کیلکولیٹر',
+  'ui.brand':'<span>میراث</span>',
+  'ui.eyebrow':'علمِ فرائض &nbsp;·&nbsp; مقررہ حصوں کا علم',
+  'ui.sub':'دیکھیے کہ اہلِ سنت کی فقہ کے مطابق ترکہ زندہ وارثوں میں کس طرح تقسیم ہوتا ہے — مقررہ حصے، حجب کے قواعد، پورا حساب، اور ہر حصے کی بنیاد بننے والی نص کے ساتھ۔',
+  'ui.langLabel':'زبان','ui.schoolLabel':'مسلک','ui.spouseLabel':'زندہ شریکِ حیات',
+  'ui.m1':'۱','ui.m2':'۲','ui.m3':'۳',
+  'ui.step1.h':'ترکہ',
+  'ui.step1.hint':'پہلے تجہیز و تکفین، پھر قرض، پھر وصیت — وارثوں کا حق سب سے آخر میں ہے، اِن تینوں کے بعد جو بچے اُسی میں سے۔',
+  'ui.f.currency':'کرنسی',
+  'ui.f.gross':'کل ترکہ','ui.f.gross.sm':'وفات کے وقت کی تمام ملکیت',
+  'ui.f.funeral':'تجہیز و تکفین','ui.f.funeral.sm':'غسل، کفن اور تدفین',
+  'ui.f.debts':'قرض','ui.f.debts.sm':'بندوں کے اور اللہ کے حقوق',
+  'ui.f.wasiyya':'وصیت','ui.f.wasiyya.sm':'زیادہ سے زیادہ ایک تہائی؛ کسی وارث کے حق میں نہیں',
+  'ui.led.head':'وارثوں تک کیا پہنچتا ہے',
+  'ui.led.gross':'کل ترکہ','ui.led.funeral':'تجہیز و تکفین','ui.led.debts':'قرض',
+  'ui.led.after':'واجبات کے بعد','ui.led.wasiyya':'ادا شدہ وصیت',
+  'ui.led.cap':'وصیت کی زیادہ سے زیادہ حد','ui.led.capval':'ایک تہائی = {v}',
+  'ui.led.net':'وارثوں میں تقسیم ہونے والا مال',
+  'ui.step2.h':'وارثین',
+  'ui.step2.hint':'صرف اُنہی کو شمار کریں جو موت کے وقت زندہ تھے۔ قریبی رشتہ دار دور کے رشتہ داروں کو خود بخود محجوب کر دیتے ہیں۔',
+  'ui.wivesHead':'بیویاں — آٹھواں یا چوتھا حصہ اُن سب کے درمیان تقسیم ہوتا ہے',
+  'ui.arham.sum':'ذوی الارحام (دور کے رشتہ دار)',
+  'ui.arham.why':'وہ رشتہ دار جن کا تعلق کسی عورت کے واسطے سے ہے۔ یہ صرف اُس وقت وارث بنتے ہیں جب شریکِ حیات کے سوا کوئی صاحبِ فرض اور کوئی مرد عصبہ موجود نہ ہو۔ جب تک صورتِ حال ایسی نہ ہو، انہیں صفر ہی رہنے دیں۔',
+  'ui.presets':'کوئی کلاسیکی مسئلہ منتخب کریں','ui.clear':'سب صاف کریں',
+  'ui.minus':'{n} — ایک کم','ui.plus':'{n} — ایک زیادہ',
+  'ui.step3.h':'تقسیم',
+  'ui.step3.hint':'ہر حصہ اصلِ مسئلہ کے کسر، فیصد اور رقم — تینوں صورتوں میں دکھایا گیا ہے۔',
+  'ui.print':'اس تقسیم کا پرنٹ','ui.copy':'متن کے طور پر کاپی کریں','ui.copied':'کاپی ہو گیا',
+  'ui.base':'اصلِ مسئلہ · بنیاد',
+  'ui.base.awl':'عول سے بڑھایا گیا','ui.base.ok':'حصے ترکے کے عین مطابق ہیں',
+  'ui.tag.awl':'{n} تک عول','ui.tag.radd':'رد','ui.tag.arham':'ذوی الارحام',
+  'ui.tag.ok':'حصے پورے بیٹھتے ہیں','ui.tag.school':'{s} مسلک',
+  'ui.th.heir':'وارث','ui.th.count':'تعداد','ui.th.ent':'استحقاق',
+  'ui.th.units':'{n} میں سے','ui.th.share':'حصہ','ui.th.amount':'رقم',
+  'ui.why':'دلیل','ui.close':'بند کریں','ui.each':'فی کس {v}',
+  'ui.empty.blocked.h':'ہر نامزد رشتہ دار محجوب ہے',
+  'ui.empty.blocked.b':'آپ نے جو رشتہ دار درج کیے، اُن میں سے ہر ایک کسی قریب تر رشتہ دار کی وجہ سے محروم ہے۔ کوئی ایسا زندہ وارث شامل کریں جو محجوب نہ ہو، یا نیچے دی گئی فہرست دیکھیں۔',
+  'ui.empty.none.h':'ابھی کوئی وارث درج نہیں',
+  'ui.empty.none.b':'اوپر کم از کم ایک زندہ رشتہ دار شامل کریں، یا کوئی کلاسیکی مسئلہ منتخب کریں تاکہ حساب کا طریقہ سامنے آ جائے۔',
+  'ui.blocked':'وراثت سے محروم · حجب',
+  'ui.foot.disc':'<strong>اس پر اعتماد کرنے سے پہلے یہ ضرور پڑھ لیں</strong>\n    کوئی کیلکولیٹر کسی ماہرِ فرائض یا باصلاحیت عدالت کا بدل نہیں ہو سکتا۔ حقیقی ترکوں کا فیصلہ جن باتوں پر ہوتا ہے، اُن سے یہ بے خبر ہے: کون پہلے فوت ہوا، نکاح یا نسب ثابت ہے یا نہیں، مشترکہ جائیداد، قتل یا اختلافِ دین کی بنا پر محروم وارث، ماں کے پیٹ میں بچہ، مفقود الخبر شخص، یا ایسا ترکہ جو کلاسیکی قواعد سے ہٹ کر کسی قانون کے تحت تقسیم ہو رہا ہو۔ اس نتیجے کو محض تعلیمی مدد سمجھیں اور اصل تقسیم کسی اہلِ علم سے تصدیق کروا کر کریں۔',
+  'ui.foot.p':'حصے قرآن (۴:۱۱، ۴:۱۲، ۴:۱۷۶)، سنت میں محفوظ فیصلوں اور حنفی، مالکی، شافعی اور حنبلی مسالک کے مقررہ مواقف پر مبنی ہیں۔ جہاں مسالک میں اختلاف ہے — دادا بمقابلہ بھائی، مسئلۂ حماریہ، بچے ہوئے مال کا رد — وہاں اوپر مسلک بدلنے سے حساب بدل جاتا ہے اور اس کی وجہ نتیجے کے ساتھ بیان کر دی جاتی ہے۔ ذوی الارحام میں تقسیم حنفی <em>اہلِ قرابت</em> کے طریقے پر ہے اور یہ فن کا سب سے کم متفق علیہ حصہ ہے۔',
+  'ui.copy.title':'ترکے کی تقسیم — {s} مسلک',
+  'ui.copy.line1':'کل ترکہ {g}  |  تجہیز و تکفین {f}  |  قرض {d}  |  وصیت {w}',
+  'ui.copy.net':'وارثوں میں تقسیم ہونے والا مال: {v}',
+  'ui.copy.base':'اصلِ مسئلہ {v}','ui.copy.baseAwl':'{a} عول کے بعد {b}','ui.copy.barred':'محروم:',
+
+  'sch.hanafi':'حنفی',
+  'sch.hanafi.d':'امام ابو حنیفہؒ دادا کو باپ کے قائم مقام مانتے ہیں: وہ ہر بھائی اور بہن کو محجوب کر دیتا ہے۔ بچا ہوا مال خونی وارثوں کی طرف لوٹ جاتا ہے۔ ترکی، شام، مصر اور جنوبی ایشیا میں غالب۔',
+  'sch.maliki':'مالکی',
+  'sch.maliki.d':'زید بن ثابتؓ کی پیروی میں دادا بھائی بہنوں کے ساتھ مقاسمہ کرتا ہے۔ مسئلۂ حماریہ میں حقیقی بھائی ماں کی طرف والے تہائی میں شریک ہو جاتے ہیں۔ شمالی اور مغربی افریقہ میں غالب۔',
+  'sch.shafii':'شافعی',
+  'sch.shafii.d':'امام مالکؒ کی طرح دادا بھائی بہنوں کے ساتھ شریک ہوتا ہے اور حقیقی بھائی ماں کی طرف والے تہائی میں شامل ہوتے ہیں۔ مصر، حجاز، مشرقی افریقہ اور جنوب مشرقی ایشیا میں غالب۔',
+  'sch.hanbali':'حنبلی',
+  'sch.hanbali.d':'دادا بھائی بہنوں کے ساتھ شریک ہوتا ہے، مگر مسئلۂ حماریہ میں حقیقی بھائیوں کو کچھ نہیں ملتا۔ سعودی عدالتوں کا معتمد مسلک۔',
+
+  'grp.desc':'اولاد اور اولاد کی اولاد','grp.asc':'والدین، دادا دادی اور نانی',
+  'grp.sib':'بھائی اور بہنیں','grp.coll':'بھتیجے، چچا اور چچا زاد',
+
+  'sp.none':'کوئی شریکِ حیات نہیں','sp.husband':'شوہر','sp.wives':'بیوی یا بیویاں',
+
+  'pr.wife2d':'بیوی، دو بیٹیاں، والدین','pr.umariyya':'عمریتان (دو عمری مسئلے)',
+  'pr.akdariyya':'اکدریہ','pr.donkey':'مسئلۂ حماریہ',
+  'pr.gfBros':'دادا بمقابلہ چار بھائی','pr.radd':'بچے ہوئے مال کا رد',
+  'pr.sisRes':'بہن بطور عصبہ','pr.arham':'صرف ذوی الارحام',
+
+  'kn.fard':'مقررہ حصہ','kn.asabah':'باقی مال (عصبہ)','kn.radd':'لوٹایا گیا مال','kn.arham':'ذوی الارحام',
+
+  'f.residue':'باقی مال','f.residue21':'باقی، 2:1','f.residue2each':'باقی، فی کس 2 حصے',
+  'f.residue1each':'باقی، فی کس 1 حصہ','f.residueWithDaughters':'بیٹیوں کے ساتھ باقی',
+  'f.sixthPlusResidue':'1/6 + باقی','f.sixthPlusShare':'1/6 + حصہ','f.thirdRem':'باقی کا 1/3',
+  'f.sixthShared':'1/6 مشترک','f.thirdShared':'1/3 مشترک','f.sharedThird':'مشترکہ 1/3',
+  'f.joinsThird':'1/3 میں شریک','f.gfBest':'1/6 ∣ باقی کا 1/3 ∣ مقاسمہ','f.arham':'ذوی الارحام',
+
+  'blk.son':'بیٹے کی وجہ سے محجوب','blk.grandson':'پوتے کی وجہ سے محجوب',
+  'blk.mother':'والدہ کی وجہ سے محجوب','blk.father':'والد کی وجہ سے محجوب',
+  'blk.desc':'وارث اولاد کی وجہ سے محجوب','blk.pgf':'دادا کی وجہ سے محجوب',
+  'blk.pgfHanafi':'دادا کی وجہ سے محجوب (حنفی مسلک)','blk.fullBro':'حقیقی بھائی کی وجہ سے محجوب',
+  'blk.patBro':'علاتی بھائی کی وجہ سے محجوب','blk.twoDaughters':'دو بیٹیاں پہلے ہی پورے دو تہائی لے چکی ہیں',
+  'blk.fullSisRes':'عصبہ بننے والی حقیقی بہن کی وجہ سے محجوب','blk.sisRes':'عصبہ بننے والی بہن کی وجہ سے محجوب',
+  'blk.twoFullSis':'دو حقیقی بہنیں پہلے ہی دو تہائی لے چکی ہیں','blk.fullNeph':'حقیقی بھتیجے کی وجہ سے محجوب',
+  'blk.neph':'بھتیجے کی وجہ سے محجوب','blk.fullUncle':'حقیقی چچا کی وجہ سے محجوب',
+  'blk.uncle':'چچا کی وجہ سے محجوب','blk.fullCousin':'حقیقی چچا زاد کی وجہ سے محجوب',
+  'blk.gfSixth':'دادا کے مقررہ چھٹے حصے کے بعد کچھ باقی نہیں بچتا',
+  'blk.gfAbsorb':'دادا کے مقابلے میں شمار ہوئے، پھر حقیقی بھائی بہنوں میں جذب ہو گئے',
+  'blk.nearerArham':'ذوی الارحام کا قریب تر طبقہ پہلے وارث ہوتا ہے',
+
+  'case.umariyya':'عمریتان','case.akdariyya':'اکدریہ','case.mushtaraka':'مشترکہ',
+  'why.sixth':'ترکے کا چھٹا حصہ','why.third':'باقی کا تہائی','why.muq':'بھائی کی طرح مقاسمہ',
+
+  'h.husband':'شوہر','h.wives':'بیویاں','h.wives#1':'بیوی',
+  'h.sons':'بیٹے','h.sons#1':'بیٹا','h.daughters':'بیٹیاں','h.daughters#1':'بیٹی',
+  'h.grandsons':'پوتے','h.grandsons#1':'پوتا','h.granddaughters':'پوتیاں','h.granddaughters#1':'پوتی',
+  'h.father':'والد','h.mother':'والدہ','h.pgf':'دادا','h.pgm':'دادی','h.mgm':'نانی',
+  'h.fullBro':'حقیقی بھائی','h.fullSis':'حقیقی بہنیں','h.fullSis#1':'حقیقی بہن',
+  'h.patBro':'علاتی بھائی (باپ شریک)','h.patSis':'علاتی بہنیں (باپ شریک)','h.patSis#1':'علاتی بہن (باپ شریک)',
+  'h.matBro':'اخیافی بھائی (ماں شریک)','h.matSis':'اخیافی بہنیں (ماں شریک)','h.matSis#1':'اخیافی بہن (ماں شریک)',
+  'h.fullNeph':'حقیقی بھتیجے','h.fullNeph#1':'حقیقی بھتیجا',
+  'h.patNeph':'علاتی بھتیجے','h.patNeph#1':'علاتی بھتیجا',
+  'h.fullUncle':'حقیقی چچا','h.patUncle':'علاتی چچا',
+  'h.fullCousin':'حقیقی چچا زاد','h.patCousin':'علاتی چچا زاد',
+  'h.dtrSons':'نواسے','h.dtrSons#1':'نواسا','h.dtrDtrs':'نواسیاں','h.dtrDtrs#1':'نواسی',
+  'h.sdChildM':'پوتی کے بیٹے','h.sdChildF':'پوتی کی بیٹیاں','h.mgf':'نانا',
+  'h.sisSons':'بھانجے','h.sisSons#1':'بھانجا','h.sisDtrs':'بھانجیاں','h.sisDtrs#1':'بھانجی',
+  'h.broDtrs':'بھتیجیاں','h.broDtrs#1':'بھتیجی',
+  'h.matSibSons':'اخیافی بھائی بہن کے بیٹے','h.matSibDtrs':'اخیافی بھائی بہن کی بیٹیاں',
+  'h.patAunts':'پھوپھیاں','h.patAunts#1':'پھوپھی','h.matUncles':'ماموں','h.matAunts':'خالائیں','h.matAunts#1':'خالہ',
+
+  'ev.husband.src':'قرآن 4:12','ev.husband.txt':'اور تمہاری بیویاں جو چھوڑ جائیں اُس کا آدھا تمہارا ہے اگر اُن کی کوئی اولاد نہ ہو؛ اور اگر اولاد ہو تو تمہارے لیے چوتھائی ہے۔',
+  'ev.wives.src':'قرآن 4:12','ev.wives.txt':'اور بیویوں کے لیے چوتھائی ہے اگر تمہاری اولاد نہ ہو؛ اور اگر اولاد ہو تو اُن کے لیے آٹھواں حصہ ہے — جو سب بیویوں میں تقسیم ہوتا ہے۔',
+  'ev.sons.src':'قرآن 4:11','ev.sons.txt':'اللہ تمہیں تمہاری اولاد کے بارے میں حکم دیتا ہے: مرد کا حصہ دو عورتوں کے برابر ہے۔ بیٹا سب سے مقدم عصبہ ہے۔',
+  'ev.daughters.src':'قرآن 4:11','ev.daughters.txt':'اگر دو یا زیادہ بیٹیاں ہوں تو اُن کے لیے دو تہائی ہے؛ اور اگر ایک ہی ہو تو اُس کے لیے آدھا۔ بیٹے کے ساتھ ہو تو اُسے بیٹے کا نصف ملتا ہے۔',
+  'ev.grandsons.src':'قرآن 4:11 (قیاساً)','ev.grandsons.txt':'بیٹے کی عدم موجودگی میں پوتا بیٹے کے قائم مقام ہوتا ہے — چاروں مسالک کا اس پر اتفاق ہے۔',
+  'ev.granddaughters.src':'ابن مسعودؓ — صحیح البخاری 6736','ev.granddaughters.txt':'نبی ﷺ نے بیٹی کے لیے آدھا، پوتی کے لیے چھٹا حصہ — جو دو تہائی کو پورا کرتا ہے — اور باقی بہن کے لیے مقرر فرمایا۔',
+  'ev.father.src':'قرآن 4:11','ev.father.txt':'اور اُس کے والدین میں سے ہر ایک کے لیے ترکے کا چھٹا حصہ ہے اگر اُس کی اولاد ہو۔ اور اگر اولاد نہ ہو اور والدین ہی وارث ہوں تو ماں کے لیے تہائی ہے۔',
+  'ev.mother.src':'قرآن 4:11','ev.mother.txt':'اُس کی ماں کے لیے تہائی؛ لیکن اگر اُس کے بھائی بہن ہوں تو ماں کے لیے چھٹا حصہ ہے۔',
+  'ev.pgf.src':'صحیح البخاری 6732','ev.pgf.txt':'’’مقررہ حصے اُن کے حق داروں کو دو؛ پھر جو باقی بچے وہ قریب ترین مرد رشتہ دار کا ہے۔‘‘ باپ کی غیر موجودگی میں دادا اُس کی جگہ لے لیتا ہے۔',
+  'ev.pgm.src':'ابو داؤد 2894، ترمذی 2101','ev.pgm.txt':'نبی ﷺ نے دادی کو چھٹا حصہ دیا۔ جہاں ایک سے زیادہ دادیاں نانیاں وارث ہوں، وہ اسی چھٹے حصے میں شریک ہوتی ہیں۔',
+  'ev.mgm.src':'ابو داؤد 2894','ev.mgm.txt':'نبی ﷺ نے نانی کو چھٹا حصہ عطا فرمایا جب میت کی ماں زندہ نہ تھی۔',
+  'ev.fullBro.src':'قرآن 4:176','ev.fullBro.txt':'اگر کوئی شخص بے اولاد مر جائے اور اُس کی بہن ہو تو اُسے آدھا ملے گا۔ اور اگر بھائی اور بہنیں ہوں تو مرد کو عورت کے دو گنا ملے گا۔',
+  'ev.fullSis.src':'قرآن 4:176','ev.fullSis.txt':'اکیلی بہن کے لیے آدھا؛ دو یا زیادہ کے لیے دو تہائی۔ بیٹیوں کی موجودگی میں وہ عصبہ مع الغیر بن کر باقی مال لیتی ہے۔',
+  'ev.patBro.src':'قرآن 4:176 (قیاساً)','ev.patBro.txt':'حقیقی بھائی کی غیر موجودگی میں علاتی بھائی اُس کی جگہ لے لیتا ہے۔',
+  'ev.patSis.src':'قرآن 4:176 + بخاری 6736','ev.patSis.txt':'اکیلی ہو تو بہن کا حصہ لیتی ہے؛ ایک حقیقی بہن کے ساتھ ہو تو چھٹا حصہ لیتی ہے جو دو تہائی کو پورا کر دیتا ہے۔',
+  'ev.matBro.src':'قرآن 4:12','ev.matBro.txt':'اگر کوئی مرد یا عورت نہ اصول چھوڑے نہ فروع، مگر اُس کا ایک بھائی یا بہن ہو، تو ہر ایک کے لیے چھٹا حصہ؛ اور اگر زیادہ ہوں تو سب تہائی میں شریک ہیں — مرد اور عورت برابر۔',
+  'ev.matSis.src':'قرآن 4:12','ev.matSis.txt':'اخیافی بھائی بہن تہائی میں برابر شریک ہوتے ہیں: تمام وارثوں میں صرف یہی ہیں جن میں مرد کو دو گنا نہیں ملتا۔',
+  'ev.fullNeph.src':'صحیح البخاری 6732','ev.fullNeph.txt':'بھائی بہنوں کے درجے کے بعد باقی مال قریب ترین زندہ مرد عصبہ کو جاتا ہے۔',
+  'ev.patNeph.src':'صحیح البخاری 6732','ev.patNeph.txt':'بھائی بہنوں کے درجے کے بعد باقی مال قریب ترین زندہ مرد عصبہ کو جاتا ہے۔',
+  'ev.fullUncle.src':'صحیح البخاری 6732','ev.fullUncle.txt':'باقی مال قریب ترین زندہ مرد عصبہ کو جاتا ہے — یہاں وہ باپ کا بھائی ہے۔',
+  'ev.patUncle.src':'صحیح البخاری 6732','ev.patUncle.txt':'باقی مال قریب ترین زندہ مرد عصبہ کو جاتا ہے — یہاں وہ باپ کا علاتی بھائی ہے۔',
+  'ev.fullCousin.src':'صحیح البخاری 6732','ev.fullCousin.txt':'باقی مال قریب ترین زندہ مرد عصبہ کو جاتا ہے — یہاں وہ چچا کا بیٹا ہے۔',
+  'ev.patCousin.src':'صحیح البخاری 6732','ev.patCousin.txt':'باقی مال قریب ترین زندہ مرد عصبہ کو جاتا ہے — یہاں وہ علاتی چچا کا بیٹا ہے۔',
+  'ev.arham.src':'قرآن 8:75','ev.arham.txt':'اور رشتہ دار اللہ کی کتاب میں ایک دوسرے کے زیادہ حق دار ہیں — یہی ذوی الارحام کی وراثت کی بنیاد ہے۔',
+
+  'note.gmFather.h':'باپ کی موجودگی میں دادی',
+  'note.gmFather.b':'امام احمدؒ سے ایک روایت میں دادی کو اپنے بیٹے (میت کے باپ) کے ساتھ بھی چھٹا حصہ ملتا ہے۔ چاروں مسالک کا معتمد قول — جو یہاں لاگو ہے — اُسے محجوب کر دیتا ہے۔',
+  'note.gfBarsSibs.h':'حنفی: دادا بھائی بہنوں کو محجوب کرتا ہے',
+  'note.gfBarsSibs.b':'امام ابو حنیفہؒ، حضرت ابو بکرؓ اور ابن عباسؓ کی پیروی میں دادا کو باپ کے حکم میں رکھتے ہیں: وہ ہر بھائی اور بہن کو محروم کر دیتا ہے۔ باقی تینوں مسالک زید بن ثابتؓ کی پیروی کرتے ہوئے بھائی بہنوں کو اُس کے ساتھ شریک کرتے ہیں۔',
+  'note.umariyya.h':'عمریتان (دو عمری مسئلے)',
+  'note.umariyya.b':'جب صرف شریکِ حیات، ماں اور باپ زندہ ہوں تو حضرت عمر بن الخطابؓ نے فیصلہ فرمایا کہ ماں کو پورے ترکے کا نہیں بلکہ شریکِ حیات کے حصے کے بعد جو باقی بچے اُس کا تہائی ملے گا — تاکہ باپ کا حصہ ہمیشہ ماں سے دوگنا رہے۔ چاروں مسالک اسی کے قائل ہیں۔ ابن عباسؓ نے اختلاف کیا اور ماں کو پورے ترکے کا تہائی دیا۔',
+  'note.akdariyya.h':'اکدریہ',
+  'note.akdariyya.b':'یہ اس فن کا سب سے مشہور مسئلہ ہے۔ پہلے بہن کو اُس کا آدھا دیا جاتا ہے، پھر عول سے حصے نو تک بڑھائے جاتے ہیں، پھر دادا اور بہن اپنے حصے ملا کر دو اور ایک کے تناسب سے دوبارہ تقسیم کرتے ہیں۔ یوں اصلِ مسئلہ ستائیس ہو جاتا ہے۔ امام ابو حنیفہؒ اس پوری ترکیب کو نہیں مانتے: اُن کے نزدیک بہن سرے سے محجوب ہے اور دادا کو چھٹا حصہ ملتا ہے۔',
+  'note.gfSixth.h':'دادا کا مضمون چھٹا حصہ',
+  'note.gfSixth.b':'مقررہ حصے ترکے کے چھٹے حصے سے بھی کم چھوڑتے ہیں۔ چھٹا حصہ دادا کی کم سے کم حد ہے اور وہ اُسے پورا لیتا ہے خواہ اس سے حصوں میں عول آ جائے؛ بھائی بہن، جو صرف باقی مال سے پاتے ہیں، محروم رہتے ہیں۔',
+  'note.gfShare.h':'دادا کا بھائی بہنوں کے ساتھ مقاسمہ',
+  'note.gfShare.b':'زید بن ثابتؓ کی پیروی میں دادا تین صورتوں میں سے سب سے زیادہ فائدہ مند صورت لیتا ہے: ترکے کا چھٹا حصہ، مقررہ حصوں کے بعد باقی کا تہائی، یا ایک عام بھائی کے برابر حصہ۔ یہاں سب سے زیادہ اِس صورت میں ملا: {@why}۔ علاتی بھائی بہنوں کو اس حساب میں اس لیے شمار کیا جاتا ہے کہ دادا کے مقابلے میں تعداد بڑھے، مگر جو حصہ اُن کے سامنے آتا ہے وہ حقیقی بھائی بہنوں کی طرف لوٹ جاتا ہے۔',
+  'note.mushtaraka.h':'مشترکہ (مسئلۂ حماریہ)',
+  'note.mushtaraka.b':'حضرت عمرؓ نے پہلے حقیقی بھائیوں کو کچھ نہ دیا، یہاں تک کہ ایک نے کہا: ’’فرض کیجیے ہمارا باپ گدھا ہی تھا — کیا ہم ایک ہی ماں کی اولاد نہیں؟‘‘ اس پر آپؓ نے اپنا فیصلہ بدل دیا۔ امام مالکؒ اور امام شافعیؒ اسی رجوع کے قائل ہیں اور حقیقی بھائی بہنوں کو ماں کی طرف والے تہائی میں برابر شریک کرتے ہیں۔ امام ابو حنیفہؒ اور امام احمدؒ پہلے فیصلے پر قائم ہیں: کچھ باقی نہیں بچتا، اس لیے انہیں کچھ نہیں ملتا۔',
+  'note.donkey.h':'مسئلۂ حماریہ',
+  'note.donkey.b':'مقررہ حصے پورا ترکہ کھا جاتے ہیں اور حقیقی بھائی، چونکہ عصبہ ہیں، محروم رہ جاتے ہیں۔ امام مالکؒ اور امام شافعیؒ اُن کے لیے ماں کی طرف والے تہائی میں برابر شرکت رکھتے ہیں — یہی مسئلہ مشترکہ کہلاتا ہے۔',
+  'note.maAlGhayr.h':'عصبہ مع الغیر',
+  'note.maAlGhayr.b':'بیٹی یا پوتی کے ساتھ وارث بننے والی بہن مقررہ کسر لینا چھوڑ دیتی ہے اور عصبہ بن جاتی ہے — یعنی جو باقی بچے وہ اُس کا ہے۔ ابن مسعودؓ نے نبی ﷺ کا بالکل یہی فیصلہ نقل کیا ہے۔',
+  'note.arham.h':'ذوی الارحام — دور کے رشتہ دار',
+  'note.arham.b':'کوئی صاحبِ فرض اور کوئی عصبہ زندہ نہیں، اس لیے ترکہ اُن رشتہ داروں کی طرف منتقل ہوتا ہے جن کا تعلق عورت کے واسطے سے ہے۔ یہ چار طبقوں میں مرتب ہیں اور قریب ترین طبقہ سب کچھ لے لیتا ہے۔ ایک ہی طبقے کے اندر تقسیم میں اختلاف ہے: یہاں حنفی اہلِ قرابت کا طریقہ استعمال ہوا ہے جس میں مرد کو عورت سے دوگنا ملتا ہے۔ امام مالکؒ اور امام شافعیؒ کلاسیکی طور پر انہیں سرے سے وارث نہیں مانتے۔ ذوی الارحام کا کوئی بھی نتیجہ عمل میں لانے سے پہلے کسی ماہرِ فرائض سے تصدیق کروا لیں۔',
+  'note.raddTreasury.h':'رد — بچے ہوئے مال کی واپسی',
+  'note.raddTreasury.b':'کلاسیکی طور پر امام مالکؒ اور امام شافعیؒ بچا ہوا مال وارثوں کی بجائے بیت المال کو دیتے ہیں۔ جہاں اسلامی بنیادوں پر ایسا بیت المال قائم نہ ہو — اور آج تقریباً ہر جگہ یہی صورت ہے — وہاں دونوں مسالک کے متاخرین رد جاری کرتے ہیں، جیسا کہ یہاں کیا گیا ہے۔',
+  'note.raddNormal.h':'رد — بچے ہوئے مال کی واپسی',
+  'note.raddNormal.b':'بچا ہوا مال اصحابِ فروض کو اُن کے حصوں کے تناسب سے واپس لوٹا دیا جاتا ہے۔ شریکِ حیات کبھی اس واپسی میں شامل نہیں ہوتا؛ صرف خونی رشتہ دار شریک ہوتے ہیں۔',
+  'note.raddSpouse.h':'رد — بچے ہوئے مال کی واپسی',
+  'note.raddSpouse.b':'کوئی خونی رشتہ دار زندہ نہیں۔ شریکِ حیات کے مقررہ حصے سے زائد مال کلاسیکی طور پر بیت المال کو جاتا ہے؛ ایسے بیت المال کی عدم موجودگی میں موجودہ عمل یہ ہے کہ وہ زندہ شریکِ حیات ہی کو لوٹا دیا جائے۔',
+  'note.awl.h':'عول — حصوں کا بڑھ جانا',
+  'note.awl.b':'مقررہ کسریں مل کر پورے ترکے سے زیادہ بن جاتی ہیں۔ حضرت عمر بن الخطابؓ نے حضرت عباسؓ کے مشورے پر یہ حل نکالا کہ مخرج بڑھا دیا جائے تاکہ ہر وارث کا حصہ ایک ہی تناسب سے کم ہو، بجائے اس کے کہ پوری کمی کسی ایک وارث پر پڑے۔ بنیاد {from} سے بڑھ کر {to} ہو گئی۔',
+  'note.wasiyyaCap.h':'وصیت ایک تہائی تک محدود',
+  'note.wasiyyaCap.b':'حضرت سعد بن ابی وقاصؓ نے دو تہائی مال کی وصیت کی اجازت چاہی، پھر نصف کی۔ نبی ﷺ نے دونوں سے منع فرمایا اور کہا: ’’تہائی — اور تہائی بھی بہت ہے۔ اپنے وارثوں کو مال دار چھوڑ کر جانا اس سے بہتر ہے کہ انہیں لوگوں کے سامنے ہاتھ پھیلاتا چھوڑ جاؤ۔‘‘ (بخاری 2742، مسلم 1628)۔ {asked} کی درخواست کی گئی؛ {max} ہی زیادہ سے زیادہ پوری کی جا سکتی ہے۔'
+},
+
+/* ------------------------------------------------------------ हिन्दी */
+hi: {
+  'ui.pageTitle':'मीरास — इस्लामी विरासत कैलकुलेटर',
+  'ui.brand':'मी<span>रास</span>',
+  'ui.eyebrow':'इल्म अल-फ़राइज़ &nbsp;·&nbsp; नियत हिस्सों का शास्त्र',
+  'ui.sub':'देखिए कि सुन्नी शरीअत के अनुसार विरासत जीवित वारिसों में किस तरह बँटती है — नियत हिस्से, हजब के नियम, पूरा गणित, और हर हिस्से का मूल प्रमाण।',
+  'ui.langLabel':'भाषा','ui.schoolLabel':'फ़िक़्ह का मसलक','ui.spouseLabel':'जीवित जीवनसाथी',
+  'ui.m1':'१','ui.m2':'२','ui.m3':'३',
+  'ui.step1.h':'विरासत की संपत्ति',
+  'ui.step1.hint':'पहले अंत्येष्टि, फिर ऋण, फिर वसीयत — वारिसों का हक़ सबसे अंत में है, इन तीनों के बाद जो बचे उसी में से।',
+  'ui.f.currency':'मुद्रा',
+  'ui.f.gross':'कुल संपत्ति','ui.f.gross.sm':'मृत्यु के समय की समस्त संपत्ति',
+  'ui.f.funeral':'अंत्येष्टि व्यय','ui.f.funeral.sm':'ग़ुस्ल, कफ़न और दफ़न',
+  'ui.f.debts':'ऋण','ui.f.debts.sm':'लोगों के और अल्लाह के हक़',
+  'ui.f.wasiyya':'वसीयत','ui.f.wasiyya.sm':'अधिकतम एक-तिहाई; किसी वारिस के नाम नहीं',
+  'ui.led.head':'वारिसों तक क्या पहुँचता है',
+  'ui.led.gross':'कुल संपत्ति','ui.led.funeral':'अंत्येष्टि व्यय','ui.led.debts':'ऋण',
+  'ui.led.after':'दायित्वों के बाद','ui.led.wasiyya':'चुकाई गई वसीयत',
+  'ui.led.cap':'वसीयत की अधिकतम सीमा','ui.led.capval':'एक-तिहाई = {v}',
+  'ui.led.net':'वारिसों में बँटने वाली राशि',
+  'ui.step2.h':'वारिस',
+  'ui.step2.hint':'केवल उन्हें गिनें जो मृत्यु के समय जीवित थे। निकट के रिश्तेदार दूर के रिश्तेदारों को स्वतः वंचित कर देते हैं।',
+  'ui.wivesHead':'पत्नियाँ — आठवाँ या चौथा हिस्सा उन सबके बीच बँटता है',
+  'ui.arham.sum':'ज़वुल-अरहाम (दूर के रिश्तेदार)',
+  'ui.arham.why':'वे रिश्तेदार जिनका संबंध किसी स्त्री के माध्यम से है। ये केवल तब वारिस बनते हैं जब जीवनसाथी के अलावा कोई नियत हिस्सेदार और कोई पुरुष असबा जीवित न हो। जब तक स्थिति ऐसी न हो, इन्हें शून्य ही रहने दें।',
+  'ui.presets':'कोई शास्त्रीय प्रश्न चुनें','ui.clear':'सब साफ़ करें',
+  'ui.minus':'{n} — एक कम','ui.plus':'{n} — एक अधिक',
+  'ui.step3.h':'विभाजन',
+  'ui.step3.hint':'हर हिस्सा आधार के अंश, प्रतिशत और राशि — तीनों रूपों में दिया गया है।',
+  'ui.print':'इस विभाजन को प्रिंट करें','ui.copy':'टेक्स्ट के रूप में कॉपी करें','ui.copied':'कॉपी हो गया',
+  'ui.base':'अस्ल अल-मसअला · आधार',
+  'ui.base.awl':'अव्ल से बढ़ाया गया','ui.base.ok':'हिस्से संपत्ति में ठीक बैठते हैं',
+  'ui.tag.awl':'{n} तक अव्ल','ui.tag.radd':'रद्द','ui.tag.arham':'ज़वुल-अरहाम',
+  'ui.tag.ok':'हिस्से संतुलित हैं','ui.tag.school':'{s} मसलक',
+  'ui.th.heir':'वारिस','ui.th.count':'संख्या','ui.th.ent':'अधिकार',
+  'ui.th.units':'{n} में से','ui.th.share':'हिस्सा','ui.th.amount':'राशि',
+  'ui.why':'प्रमाण','ui.close':'बंद करें','ui.each':'प्रति व्यक्ति {v}',
+  'ui.empty.blocked.h':'हर नामित रिश्तेदार वंचित है',
+  'ui.empty.blocked.b':'आपने जो रिश्तेदार दर्ज किए, उनमें से हर एक किसी निकटतर रिश्तेदार के कारण वंचित है। कोई ऐसा जीवित वारिस जोड़ें जो वंचित न हो, या नीचे दी गई सूची देखें।',
+  'ui.empty.none.h':'अभी कोई वारिस नहीं',
+  'ui.empty.none.b':'ऊपर कम से कम एक जीवित रिश्तेदार जोड़ें, या कोई शास्त्रीय प्रश्न चुनें ताकि गणित का तरीक़ा सामने आ जाए।',
+  'ui.blocked':'विरासत से वंचित · हजब',
+  'ui.foot.disc':'<strong>इस पर भरोसा करने से पहले यह अवश्य पढ़ें</strong>\n    कोई कैलकुलेटर किसी योग्य <em>फ़राइज़ी</em> या सक्षम न्यायालय का विकल्प नहीं हो सकता। वास्तविक विरासतों का निर्णय जिन तथ्यों पर होता है, उनसे यह अनजान है: कौन पहले मरा, विवाह या वंश सिद्ध है या नहीं, संयुक्त संपत्ति, हत्या या धर्म-भेद के कारण वंचित वारिस, गर्भस्थ शिशु, लापता व्यक्ति, या ऐसी विरासत जो शास्त्रीय नियमों से हटकर किसी क़ानून के अंतर्गत बँट रही हो। इस परिणाम को केवल अध्ययन-सहायक मानें और वास्तविक विभाजन किसी विद्वान से पुष्ट करवाकर करें।',
+  'ui.foot.p':'हिस्से क़ुरआन (4:11, 4:12, 4:176), सुन्नत में सुरक्षित निर्णयों तथा हनफ़ी, मालिकी, शाफ़ई और हंबली मसलकों की स्थापित राय पर आधारित हैं। जहाँ मसलकों में मतभेद है — दादा बनाम भाई, गधे वाला प्रश्न, बची हुई संपत्ति का रद्द — वहाँ ऊपर मसलक बदलने से गणित बदल जाता है और उसका कारण परिणाम के साथ बता दिया जाता है। ज़वुल-अरहाम में विभाजन हनफ़ी <em>अहल अल-क़राबा</em> पद्धति पर है और यह इस विद्या का सबसे कम निश्चित भाग है।',
+  'ui.copy.title':'विरासत का विभाजन — {s} मसलक',
+  'ui.copy.line1':'कुल संपत्ति {g}  |  अंत्येष्टि {f}  |  ऋण {d}  |  वसीयत {w}',
+  'ui.copy.net':'वारिसों में बँटने वाली राशि: {v}',
+  'ui.copy.base':'आधार {v}','ui.copy.baseAwl':'{a} अव्ल के बाद {b}','ui.copy.barred':'वंचित:',
+
+  'sch.hanafi':'हनफ़ी',
+  'sch.hanafi.d':'इमाम अबू हनीफ़ा दादा को पिता के स्थान पर मानते हैं: वह हर भाई-बहन को वंचित कर देता है। बची हुई संपत्ति रक्त-संबंधी वारिसों को लौट जाती है। तुर्की, शाम, मिस्र और दक्षिण एशिया में प्रचलित।',
+  'sch.maliki':'मालिकी',
+  'sch.maliki.d':'ज़ैद बिन साबित का अनुसरण करते हुए दादा भाई-बहनों के साथ भाग लेता है। गधे वाले प्रश्न में सगे भाई माता की ओर के तिहाई में शामिल हो जाते हैं। उत्तरी और पश्चिमी अफ़्रीक़ा में प्रचलित।',
+  'sch.shafii':'शाफ़ई',
+  'sch.shafii.d':'इमाम मालिक की तरह दादा भाई-बहनों के साथ भाग लेता है और सगे भाई माता की ओर के तिहाई में शामिल होते हैं। मिस्र, हिजाज़, पूर्वी अफ़्रीक़ा और दक्षिण-पूर्व एशिया में प्रचलित।',
+  'sch.hanbali':'हंबली',
+  'sch.hanbali.d':'दादा भाई-बहनों के साथ भाग लेता है, किंतु गधे वाले प्रश्न में सगे भाइयों को कुछ नहीं मिलता। सऊदी न्यायालयों का मान्य मसलक।',
+
+  'grp.desc':'संतान और संतान की संतान','grp.asc':'माता-पिता, दादा-दादी और नानी',
+  'grp.sib':'भाई और बहनें','grp.coll':'भतीजे, चाचा और चचेरे भाई',
+
+  'sp.none':'कोई जीवनसाथी नहीं','sp.husband':'पति','sp.wives':'पत्नी या पत्नियाँ',
+
+  'pr.wife2d':'पत्नी, दो बेटियाँ, माता-पिता','pr.umariyya':'दो उमरी प्रश्न',
+  'pr.akdariyya':'अल-अकदरिय्या','pr.donkey':'गधे वाला प्रश्न',
+  'pr.gfBros':'दादा बनाम चार भाई','pr.radd':'बची हुई संपत्ति का रद्द',
+  'pr.sisRes':'बहन असबा के रूप में','pr.arham':'केवल दूर के रिश्तेदार',
+
+  'kn.fard':'नियत हिस्सा','kn.asabah':'शेष संपत्ति (असबा)','kn.radd':'लौटाई गई संपत्ति','kn.arham':'दूर के रिश्तेदार',
+
+  'f.residue':'शेष','f.residue21':'शेष, 2:1','f.residue2each':'शेष, प्रति व्यक्ति 2 भाग',
+  'f.residue1each':'शेष, प्रति व्यक्ति 1 भाग','f.residueWithDaughters':'बेटियों के साथ शेष',
+  'f.sixthPlusResidue':'1/6 + शेष','f.sixthPlusShare':'1/6 + भाग','f.thirdRem':'शेष का 1/3',
+  'f.sixthShared':'1/6 साझा','f.thirdShared':'1/3 साझा','f.sharedThird':'साझा 1/3',
+  'f.joinsThird':'1/3 में शामिल','f.gfBest':'1/6 ∣ शेष का 1/3 ∣ मुक़ासमा','f.arham':'दूर के रिश्तेदार',
+
+  'blk.son':'बेटे के कारण वंचित','blk.grandson':'पोते के कारण वंचित',
+  'blk.mother':'माता के कारण वंचित','blk.father':'पिता के कारण वंचित',
+  'blk.desc':'वारिस संतान के कारण वंचित','blk.pgf':'दादा के कारण वंचित',
+  'blk.pgfHanafi':'दादा के कारण वंचित (हनफ़ी मत)','blk.fullBro':'सगे भाई के कारण वंचित',
+  'blk.patBro':'पिता की ओर के सौतेले भाई के कारण वंचित','blk.twoDaughters':'दो बेटियाँ पहले ही पूरा दो-तिहाई ले चुकी हैं',
+  'blk.fullSisRes':'असबा बनी सगी बहन के कारण वंचित','blk.sisRes':'असबा बनी बहन के कारण वंचित',
+  'blk.twoFullSis':'दो सगी बहनें पहले ही दो-तिहाई ले चुकी हैं','blk.fullNeph':'सगे भतीजे के कारण वंचित',
+  'blk.neph':'भतीजे के कारण वंचित','blk.fullUncle':'सगे चाचा के कारण वंचित',
+  'blk.uncle':'चाचा के कारण वंचित','blk.fullCousin':'सगे चचेरे भाई के कारण वंचित',
+  'blk.gfSixth':'दादा के निश्चित छठे हिस्से के बाद कुछ शेष नहीं बचता',
+  'blk.gfAbsorb':'दादा के मुक़ाबले में गिने गए, फिर सगे भाई-बहनों में समा गए',
+  'blk.nearerArham':'दूर के रिश्तेदारों का निकटतर वर्ग पहले वारिस होता है',
+
+  'case.umariyya':'अल-उमरिय्यतान','case.akdariyya':'अल-अकदरिय्या','case.mushtaraka':'अल-मुश्तरका',
+  'why.sixth':'संपत्ति का छठा हिस्सा','why.third':'शेष का तिहाई','why.muq':'भाई की तरह भाग लेना (मुक़ासमा)',
+
+  'h.husband':'पति','h.wives':'पत्नियाँ','h.wives#1':'पत्नी',
+  'h.sons':'बेटे','h.sons#1':'बेटा','h.daughters':'बेटियाँ','h.daughters#1':'बेटी',
+  'h.grandsons':'पोते','h.grandsons#1':'पोता','h.granddaughters':'पोतियाँ','h.granddaughters#1':'पोती',
+  'h.father':'पिता','h.mother':'माता','h.pgf':'दादा','h.pgm':'दादी','h.mgm':'नानी',
+  'h.fullBro':'सगे भाई','h.fullBro#1':'सगा भाई','h.fullSis':'सगी बहनें','h.fullSis#1':'सगी बहन',
+  'h.patBro':'सौतेले भाई (पिता की ओर से)','h.patBro#1':'सौतेला भाई (पिता की ओर से)',
+  'h.patSis':'सौतेली बहनें (पिता की ओर से)','h.patSis#1':'सौतेली बहन (पिता की ओर से)',
+  'h.matBro':'सौतेले भाई (माता की ओर से)','h.matBro#1':'सौतेला भाई (माता की ओर से)',
+  'h.matSis':'सौतेली बहनें (माता की ओर से)','h.matSis#1':'सौतेली बहन (माता की ओर से)',
+  'h.fullNeph':'सगे भतीजे','h.fullNeph#1':'सगा भतीजा',
+  'h.patNeph':'सौतेले भाई के बेटे','h.patNeph#1':'सौतेले भाई का बेटा',
+  'h.fullUncle':'सगे चाचा','h.fullUncle#1':'सगा चाचा','h.patUncle':'सौतेले चाचा','h.patUncle#1':'सौतेला चाचा',
+  'h.fullCousin':'सगे चचेरे भाई','h.fullCousin#1':'सगा चचेरा भाई',
+  'h.patCousin':'सौतेले चचेरे भाई','h.patCousin#1':'सौतेला चचेरा भाई',
+  'h.dtrSons':'नाती (बेटी के बेटे)','h.dtrSons#1':'नाती','h.dtrDtrs':'नातिनें','h.dtrDtrs#1':'नातिन',
+  'h.sdChildM':'पोती के बेटे','h.sdChildF':'पोती की बेटियाँ','h.mgf':'नाना',
+  'h.sisSons':'भांजे','h.sisSons#1':'भांजा','h.sisDtrs':'भांजियाँ','h.sisDtrs#1':'भांजी',
+  'h.broDtrs':'भतीजियाँ','h.broDtrs#1':'भतीजी',
+  'h.matSibSons':'माता की ओर के भाई-बहनों के बेटे','h.matSibDtrs':'माता की ओर के भाई-बहनों की बेटियाँ',
+  'h.patAunts':'बुआ','h.matUncles':'मामा','h.matAunts':'मौसी',
+
+  'ev.husband.src':'क़ुरआन 4:12','ev.husband.txt':'और तुम्हारी पत्नियाँ जो छोड़ जाएँ उसका आधा तुम्हारा है, यदि उनकी कोई संतान न हो; और यदि संतान हो तो तुम्हारे लिए चौथाई है।',
+  'ev.wives.src':'क़ुरआन 4:12','ev.wives.txt':'और पत्नियों के लिए चौथाई है यदि तुम्हारी संतान न हो; और यदि संतान हो तो उनके लिए आठवाँ हिस्सा है — जो सब पत्नियों में बँटता है।',
+  'ev.sons.src':'क़ुरआन 4:11','ev.sons.txt':'अल्लाह तुम्हें तुम्हारी संतान के विषय में आदेश देता है: पुरुष का हिस्सा दो स्त्रियों के बराबर है। बेटा सबसे प्रमुख असबा है।',
+  'ev.daughters.src':'क़ुरआन 4:11','ev.daughters.txt':'यदि दो या अधिक बेटियाँ हों तो उनके लिए दो-तिहाई है; और यदि एक ही हो तो उसके लिए आधा। बेटे के साथ हो तो उसे बेटे का आधा मिलता है।',
+  'ev.grandsons.src':'क़ुरआन 4:11 (क़ियास से)','ev.grandsons.txt':'बेटे की अनुपस्थिति में पोता बेटे के स्थान पर आ जाता है — चारों मसलक इस पर सहमत हैं।',
+  'ev.granddaughters.src':'इब्न मसऊद — सहीह अल-बुख़ारी 6736','ev.granddaughters.txt':'नबी ﷺ ने बेटी के लिए आधा, पोती के लिए छठा हिस्सा — जो दो-तिहाई को पूरा करता है — और शेष बहन के लिए निर्धारित किया।',
+  'ev.father.src':'क़ुरआन 4:11','ev.father.txt':'और उसके माता-पिता में से हर एक के लिए विरासत का छठा हिस्सा है, यदि उसकी संतान हो। और यदि संतान न हो तथा माता-पिता ही वारिस हों, तो माता के लिए एक-तिहाई है।',
+  'ev.mother.src':'क़ुरआन 4:11','ev.mother.txt':'उसकी माता के लिए एक-तिहाई; किंतु यदि उसके भाई-बहन हों तो माता के लिए छठा हिस्सा है।',
+  'ev.pgf.src':'सहीह अल-बुख़ारी 6732','ev.pgf.txt':'“नियत हिस्से उनके हक़दारों को दो; फिर जो शेष बचे वह निकटतम पुरुष रिश्तेदार का है।” पिता की अनुपस्थिति में दादा उसका स्थान ले लेता है।',
+  'ev.pgm.src':'अबू दाऊद 2894, तिर्मिज़ी 2101','ev.pgm.txt':'नबी ﷺ ने दादी को छठा हिस्सा दिया। जहाँ एक से अधिक दादी-नानी वारिस हों, वे उसी छठे हिस्से में साझा करती हैं।',
+  'ev.mgm.src':'अबू दाऊद 2894','ev.mgm.txt':'नबी ﷺ ने नानी को छठा हिस्सा दिया जब मृतक की माता जीवित न थी।',
+  'ev.fullBro.src':'क़ुरआन 4:176','ev.fullBro.txt':'यदि कोई पुरुष निःसंतान मर जाए और उसकी बहन हो तो उसे आधा मिलेगा। और यदि भाई तथा बहनें हों तो पुरुष को स्त्री से दुगना मिलेगा।',
+  'ev.fullSis.src':'क़ुरआन 4:176','ev.fullSis.txt':'अकेली बहन के लिए आधा; दो या अधिक के लिए दो-तिहाई। बेटियों की उपस्थिति में वह असबा मअ अल-ग़ैर बनकर शेष संपत्ति लेती है।',
+  'ev.patBro.src':'क़ुरआन 4:176 (क़ियास से)','ev.patBro.txt':'सगे भाई की अनुपस्थिति में पिता की ओर का सौतेला भाई उसका स्थान ले लेता है।',
+  'ev.patSis.src':'क़ुरआन 4:176 + बुख़ारी 6736','ev.patSis.txt':'अकेली हो तो बहन का हिस्सा लेती है; एक सगी बहन के साथ हो तो छठा हिस्सा लेती है जो दो-तिहाई को पूरा कर देता है।',
+  'ev.matBro.src':'क़ुरआन 4:12','ev.matBro.txt':'यदि कोई पुरुष या स्त्री न पूर्वज छोड़े न संतान, किंतु उसका एक भाई या बहन हो, तो प्रत्येक के लिए छठा हिस्सा; और यदि अधिक हों तो सब एक-तिहाई में साझीदार हैं — पुरुष और स्त्री बराबर।',
+  'ev.matSis.src':'क़ुरआन 4:12','ev.matSis.txt':'माता की ओर के भाई-बहन तिहाई में बराबर साझा करते हैं: समस्त वारिसों में केवल यही हैं जिनमें पुरुष को दुगना नहीं मिलता।',
+  'ev.fullNeph.src':'सहीह अल-बुख़ारी 6732','ev.fullNeph.txt':'भाई-बहनों के स्तर के बाद शेष संपत्ति निकटतम जीवित पुरुष असबा को जाती है।',
+  'ev.patNeph.src':'सहीह अल-बुख़ारी 6732','ev.patNeph.txt':'भाई-बहनों के स्तर के बाद शेष संपत्ति निकटतम जीवित पुरुष असबा को जाती है।',
+  'ev.fullUncle.src':'सहीह अल-बुख़ारी 6732','ev.fullUncle.txt':'शेष संपत्ति निकटतम जीवित पुरुष असबा को जाती है — यहाँ वह पिता का भाई है।',
+  'ev.patUncle.src':'सहीह अल-बुख़ारी 6732','ev.patUncle.txt':'शेष संपत्ति निकटतम जीवित पुरुष असबा को जाती है — यहाँ वह पिता का सौतेला भाई है।',
+  'ev.fullCousin.src':'सहीह अल-बुख़ारी 6732','ev.fullCousin.txt':'शेष संपत्ति निकटतम जीवित पुरुष असबा को जाती है — यहाँ वह चाचा का बेटा है।',
+  'ev.patCousin.src':'सहीह अल-बुख़ारी 6732','ev.patCousin.txt':'शेष संपत्ति निकटतम जीवित पुरुष असबा को जाती है — यहाँ वह सौतेले चाचा का बेटा है।',
+  'ev.arham.src':'क़ुरआन 8:75','ev.arham.txt':'और रक्त-संबंधी अल्लाह की किताब में एक-दूसरे के अधिक हक़दार हैं — यही ज़वुल-अरहाम की विरासत का आधार है।',
+
+  'note.gmFather.h':'पिता की उपस्थिति में दादी',
+  'note.gmFather.b':'इमाम अहमद से एक रिवायत में दादी को अपने पुत्र (मृतक के पिता) के साथ भी छठा हिस्सा मिलता है। चारों मसलकों का मान्य मत — जो यहाँ लागू है — उसे वंचित कर देता है।',
+  'note.gfBarsSibs.h':'हनफ़ी: दादा भाई-बहनों को वंचित करता है',
+  'note.gfBarsSibs.b':'इमाम अबू हनीफ़ा, अबू बक्र और इब्न अब्बास का अनुसरण करते हुए दादा को पिता के समान मानते हैं: वह हर भाई और बहन को वंचित कर देता है। शेष तीनों मसलक ज़ैद बिन साबित का अनुसरण करते हुए भाई-बहनों को उसके साथ साझीदार बनाते हैं।',
+  'note.umariyya.h':'अल-उमरिय्यतान (दो उमरी प्रश्न)',
+  'note.umariyya.b':'जब केवल जीवनसाथी, माता और पिता जीवित हों, तो उमर बिन अल-ख़त्ताब ने निर्णय दिया कि माता को पूरी संपत्ति का नहीं, बल्कि जीवनसाथी के हिस्से के बाद जो शेष बचे उसका एक-तिहाई मिलेगा — ताकि पिता का हिस्सा सदा माता से दुगना रहे। चारों मसलक इसी के अनुसार चलते हैं। इब्न अब्बास ने असहमति जताई और माता को पूरी संपत्ति का एक-तिहाई दिया।',
+  'note.akdariyya.h':'अल-अकदरिय्या',
+  'note.akdariyya.b':'यह इस विद्या का सबसे प्रसिद्ध प्रश्न है। पहले बहन को उसका आधा दिया जाता है, फिर अव्ल से हिस्से नौ तक बढ़ाए जाते हैं, फिर दादा और बहन अपने हिस्से मिलाकर दो और एक के अनुपात में पुनः बाँटते हैं। इस तरह आधार सत्ताईस हो जाता है। इमाम अबू हनीफ़ा इस पूरी रचना को अस्वीकार करते हैं: उनके अनुसार बहन वंचित है और दादा को छठा हिस्सा मिलता है।',
+  'note.gfSixth.h':'दादा का सुनिश्चित छठा हिस्सा',
+  'note.gfSixth.b':'नियत हिस्से संपत्ति के छठे भाग से भी कम शेष छोड़ते हैं। छठा हिस्सा दादा की न्यूनतम सीमा है और वह उसे पूरा लेता है, चाहे इससे हिस्सों में अव्ल आ जाए; भाई-बहन, जो केवल शेष में से पाते हैं, वंचित रह जाते हैं।',
+  'note.gfShare.h':'दादा का भाई-बहनों के साथ भाग लेना',
+  'note.gfShare.b':'ज़ैद बिन साबित का अनुसरण करते हुए दादा तीन में से सबसे अधिक लाभदायक विकल्प लेता है: संपत्ति का छठा हिस्सा, नियत हिस्सों के बाद शेष का एक-तिहाई, या एक साधारण भाई के बराबर हिस्सा। यहाँ सबसे अधिक इस विकल्प से मिला: {@why}। पिता की ओर के सौतेले भाई-बहनों को इस गणना में इसलिए गिना जाता है कि दादा के मुक़ाबले संख्या बढ़े, किंतु जो हिस्सा उनके सामने आता है वह सगे भाई-बहनों को लौट जाता है।',
+  'note.mushtaraka.h':'अल-मुश्तरका (अल-हिमारिय्या)',
+  'note.mushtaraka.b':'उमर ने पहले सगे भाइयों को कुछ नहीं दिया, यहाँ तक कि एक ने कहा: “मान लीजिए हमारा पिता गधा ही था — क्या हम एक ही माता की संतान नहीं?” इस पर उन्होंने अपना निर्णय बदल दिया। इमाम मालिक और इमाम शाफ़ई इसी पुनर्विचार के अनुसार सगे भाई-बहनों को माता की ओर के तिहाई में बराबर साझीदार बनाते हैं। इमाम अबू हनीफ़ा और इमाम अहमद पहले निर्णय पर स्थिर हैं: कुछ शेष नहीं बचता, इसलिए उन्हें कुछ नहीं मिलता।',
+  'note.donkey.h':'गधे वाला प्रश्न',
+  'note.donkey.b':'नियत हिस्से पूरी संपत्ति खा जाते हैं और सगे भाई, चूँकि असबा हैं, वंचित रह जाते हैं। इमाम मालिक और इमाम शाफ़ई उन्हें माता की ओर के तिहाई में बराबर साझीदार बनाते — यही प्रश्न अल-मुश्तरका कहलाता है।',
+  'note.maAlGhayr.h':'असबा मअ अल-ग़ैर',
+  'note.maAlGhayr.b':'बेटी या पोती के साथ वारिस बनने वाली बहन नियत अंश लेना छोड़ देती है और असबा बन जाती है — अर्थात जो शेष बचे वह उसका है। इब्न मसऊद ने नबी ﷺ का ठीक यही निर्णय वर्णित किया है।',
+  'note.arham.h':'ज़वुल-अरहाम — दूर के रिश्तेदार',
+  'note.arham.b':'कोई नियत हिस्सेदार और कोई असबा जीवित नहीं, इसलिए संपत्ति उन रिश्तेदारों को जाती है जिनका संबंध स्त्री के माध्यम से है। ये चार वर्गों में क्रमबद्ध हैं और निकटतम वर्ग सब कुछ ले लेता है। एक ही वर्ग के भीतर विभाजन पर मतभेद है: यहाँ हनफ़ी अहल अल-क़राबा पद्धति प्रयुक्त है, जिसमें पुरुष को स्त्री से दुगना मिलता है। इमाम मालिक और इमाम शाफ़ई शास्त्रीय रूप से इन्हें वारिस ही नहीं मानते। ज़वुल-अरहाम का कोई भी परिणाम अमल में लाने से पहले किसी योग्य फ़राइज़ी से पुष्ट करवा लें।',
+  'note.raddTreasury.h':'रद्द — बची हुई संपत्ति की वापसी',
+  'note.raddTreasury.b':'शास्त्रीय रूप से इमाम मालिक और इमाम शाफ़ई बची हुई संपत्ति वारिसों के बजाय बैतुल-माल को देते हैं। जहाँ इस्लामी आधार पर ऐसा बैतुल-माल न हो — और आज लगभग हर जगह यही स्थिति है — वहाँ दोनों मसलकों के बाद के विद्वान रद्द लागू करते हैं, जैसा यहाँ किया गया है।',
+  'note.raddNormal.h':'रद्द — बची हुई संपत्ति की वापसी',
+  'note.raddNormal.b':'बची हुई संपत्ति नियत हिस्सेदारों को उनके हिस्सों के अनुपात में लौटा दी जाती है। जीवनसाथी कभी इस वापसी में शामिल नहीं होता; केवल रक्त-संबंधी शामिल होते हैं।',
+  'note.raddSpouse.h':'रद्द — बची हुई संपत्ति की वापसी',
+  'note.raddSpouse.b':'कोई रक्त-संबंधी जीवित नहीं। जीवनसाथी के नियत हिस्से से अधिक संपत्ति शास्त्रीय रूप से बैतुल-माल को जाती है; ऐसे बैतुल-माल के अभाव में वर्तमान व्यवहार यह है कि वह जीवित जीवनसाथी को ही लौटा दी जाए।',
+  'note.awl.h':'अव्ल — हिस्सों का बढ़ जाना',
+  'note.awl.b':'नियत अंश मिलकर पूरी संपत्ति से अधिक हो जाते हैं। उमर बिन अल-ख़त्ताब ने अब्बास की सलाह पर यह हल निकाला कि हर का बढ़ा दिया जाए ताकि प्रत्येक वारिस का हिस्सा एक ही अनुपात में घटे, बजाय इसके कि पूरी कमी किसी एक वारिस पर पड़े। आधार {from} से बढ़कर {to} हो गया।',
+  'note.wasiyyaCap.h':'वसीयत एक-तिहाई तक सीमित',
+  'note.wasiyyaCap.b':'सअद बिन अबी वक़्क़ास ने दो-तिहाई संपत्ति की वसीयत करनी चाही, फिर आधे की। नबी ﷺ ने दोनों से मना किया और कहा: “एक-तिहाई — और एक-तिहाई भी बहुत है। अपने वारिसों को धनी छोड़कर जाना इससे बेहतर है कि उन्हें लोगों के सामने हाथ फैलाता छोड़ जाओ।” (बुख़ारी 2742, मुस्लिम 1628)। {asked} की माँग की गई थी; {max} ही अधिकतम पूरी की जा सकती है।'
+}
+};
+
+let LANG = 'en';
+
+function fill(str, p){
+  return String(str).replace(/\{(@?)(\w+)\}/g, function(m, at, k){
+    if(!p || !(k in p)) return m;
+    return at ? tr(p[k]) : String(p[k]);
+  });
+}
+/* translate; unknown keys print themselves, so '1/2' stays '1/2' */
+function tr(key, p){
+  if(key == null) return '';
+  const d = I18N[LANG] || I18N.en;
+  let v = (d[key] != null) ? d[key] : (I18N.en[key] != null ? I18N.en[key] : key);
+  return p ? fill(v, p) : v;
+}
+/* translate if this language carries the key, otherwise keep the English source */
+function trOr(key, fallback){
+  const d = I18N[LANG];
+  if(d && d[key] != null) return d[key];
+  return fallback;
+}
+function schName(k){ return tr('sch.' + k); }
+function heirName(k, n){
+  const d = I18N[LANG] || {};
+  const one = (n === 1 && SING[k]);
+  if(one && d['h.' + k + '#1'] != null) return d['h.' + k + '#1'];
+  if(d['h.' + k] != null) return d['h.' + k];
+  return one ? SING[k] : HEIRS[k].label;
+}
+function noteTx(x, part){
+  const d = I18N[LANG];
+  const key = 'note.' + x.k + '.' + part;
+  if(x.k && d && d[key] != null) return fill(d[key], x.p);
+  return x[part];
+}
+
 /* ============================ UI ============================ */
-const SCHOOLS = [
-  ['hanafi','Ḥanafī','Abū Ḥanīfa treats the grandfather as a father: he bars every brother and sister. A surplus returns to the blood heirs. Predominant in Turkey, the Levant, Egypt and South Asia.'],
-  ['maliki','Mālikī','Following Zayd b. Thābit, the grandfather competes with the siblings. In the donkey problem the full brothers join the maternal third. Predominant in North and West Africa.'],
-  ['shafii','Shāfiʿī','As with Mālik, the grandfather shares with the siblings and the full brothers join the maternal third. Predominant in Egypt, the Hijaz, East Africa and Southeast Asia.'],
-  ['hanbali','Ḥanbalī','The grandfather shares with the siblings, but in the donkey problem the full brothers take nothing. The reference school of the Saudi courts.']
-];
+const SCHOOLS = ['hanafi','maliki','shafii','hanbali'];
 const GROUPS = [
   ['desc','Children and their children',['sons','daughters','grandsons','granddaughters']],
   ['asc','Parents and grandparents',['father','mother','pgf','pgm','mgm']],
@@ -815,14 +1383,14 @@ const ARHAM_KEYS = ['dtrSons','dtrDtrs','sdChildM','sdChildF','mgf','sisSons','s
 const CURRENCIES = [['SAR','ر.س SAR'],['AED','د.إ AED'],['USD','$ USD'],['EUR','€ EUR'],['GBP','£ GBP'],['PKR','₨ PKR'],['INR','₹ INR'],['MYR','RM MYR'],['IDR','Rp IDR'],['EGP','E£ EGP'],['TRY','₺ TRY'],['NGN','₦ NGN']];
 
 const PRESETS = [
-  ['Wife, two daughters, both parents','hanafi',{wives:1,daughters:2,father:1,mother:1}],
-  ['The two ʿUmar cases','hanafi',{husband:1,mother:1,father:1}],
-  ['al-Akdariyya','maliki',{husband:1,mother:1,fullSis:1,pgf:1}],
-  ['The donkey problem','shafii',{husband:1,mother:1,matSis:2,fullBro:1}],
-  ['Grandfather against four brothers','hanbali',{pgf:1,fullBro:4}],
-  ['A surplus returned','hanafi',{mother:1,daughters:1}],
-  ['Sister as residuary','hanafi',{daughters:1,fullSis:1,fullNeph:1}],
-  ['Only distant kindred','hanafi',{husband:1,dtrSons:1,dtrDtrs:1}]
+  ['pr.wife2d','hanafi',{wives:1,daughters:2,father:1,mother:1}],
+  ['pr.umariyya','hanafi',{husband:1,mother:1,father:1}],
+  ['pr.akdariyya','maliki',{husband:1,mother:1,fullSis:1,pgf:1}],
+  ['pr.donkey','shafii',{husband:1,mother:1,matSis:2,fullBro:1}],
+  ['pr.gfBros','hanbali',{pgf:1,fullBro:4}],
+  ['pr.radd','hanafi',{mother:1,daughters:1}],
+  ['pr.sisRes','hanafi',{daughters:1,fullSis:1,fullNeph:1}],
+  ['pr.arham','hanafi',{husband:1,dtrSons:1,dtrDtrs:1}]
 ];
 
 let state = { madhhab:'hanafi', spouse:'none', wives:1, heirs:{}, cur:'SAR', open:null };
@@ -831,6 +1399,50 @@ for (const k in HEIRS) state.heirs[k] = 0;
 const $ = s => document.querySelector(s);
 const el = (t,c,h) => { const n=document.createElement(t); if(c)n.className=c; if(h!==undefined)n.innerHTML=h; return n; };
 const esc = s => String(s).replace(/[&<>"]/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[ch]));
+
+/* ---- language bar ---- */
+const LANG_NAMES = [['en','English'],['ur','اردو'],['hi','हिन्दी']];
+function buildLangBar(){
+  const bar=$('#langbar'); if(!bar) return;
+  bar.innerHTML='';
+  LANG_NAMES.forEach(([k,n])=>{
+    const b=el('button','langbtn',esc(n)); b.type='button';
+    b.dataset.l=k; b.setAttribute('lang',k);
+    b.setAttribute('aria-pressed',String(k===LANG));
+    b.onclick=()=>setLang(k);
+    bar.appendChild(b);
+  });
+}
+function applyStatic(){
+  document.title = tr('ui.pageTitle');
+  document.querySelectorAll('[data-i18n]').forEach(n=>{ n.textContent=tr(n.getAttribute('data-i18n')); });
+  document.querySelectorAll('[data-i18n-html]').forEach(n=>{ n.innerHTML=tr(n.getAttribute('data-i18n-html')); });
+  document.querySelectorAll('[data-i18n-label]').forEach(n=>{ n.setAttribute('aria-label',tr(n.getAttribute('data-i18n-label'))); });
+  document.querySelectorAll('[data-i18n-field]').forEach(n=>{
+    const k=n.getAttribute('data-i18n-field');
+    n.innerHTML=esc(tr('ui.f.'+k))+'<span class="sm">'+esc(tr('ui.f.'+k+'.sm'))+'</span>';
+  });
+}
+function setLang(l){
+  LANG = I18N[l] ? l : 'en';
+  const h=document.documentElement;
+  h.setAttribute('lang',LANG);
+  h.setAttribute('dir',LANG==='ur'?'rtl':'ltr');
+  try{ localStorage.setItem('mirath-lang',LANG); }catch(e){}
+  applyStatic();
+  $('#langbar').querySelectorAll('.langbtn').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.l===LANG)));
+  $('#schools').querySelectorAll('.school').forEach((b,i)=>{ b.innerHTML=esc(schName(SCHOOLS[i])); });
+  $('#spousePick').querySelectorAll('button').forEach((b,i)=>{ b.innerHTML=esc(tr('sp.'+['none','husband','wives'][i])); });
+  $('#presets').querySelectorAll('.chip').forEach((b,i)=>{ b.innerHTML=esc(i<PRESETS.length?tr(PRESETS[i][0]):tr('ui.clear')); });
+  noteSchool(); buildHeirs(); render();
+}
+function initLang(){
+  let l='en';
+  try{ const v=localStorage.getItem('mirath-lang'); if(v&&I18N[v]) l=v; }catch(e){}
+  buildLangBar();
+  setLang(l);
+}
+
 
 let fmtCur = null;
 function setCur(code){
@@ -844,14 +1456,14 @@ const parseNum = s => { const v=parseFloat(String(s).replace(/[^0-9.]/g,'')); re
 /* ---- build school bar ---- */
 (function(){
   const bar=$('#schools');
-  SCHOOLS.forEach(([k,n])=>{
-    const b=el('button','school',n); b.type='button'; b.setAttribute('aria-pressed',k===state.madhhab);
+  SCHOOLS.forEach(k=>{
+    const b=el('button','school',esc(schName(k))); b.type='button'; b.setAttribute('aria-pressed',k===state.madhhab);
     b.onclick=()=>{ state.madhhab=k; bar.querySelectorAll('.school').forEach(x=>x.setAttribute('aria-pressed','false')); b.setAttribute('aria-pressed','true'); noteSchool(); render(); };
     bar.appendChild(b);
   });
   noteSchool();
 })();
-function noteSchool(){ $('#schoolNote').textContent = SCHOOLS.find(s=>s[0]===state.madhhab)[2]; }
+function noteSchool(){ $('#schoolNote').textContent = tr('sch.'+state.madhhab+'.d'); }
 
 /* ---- currency ---- */
 (function(){
@@ -864,8 +1476,8 @@ function noteSchool(){ $('#schoolNote').textContent = SCHOOLS.find(s=>s[0]===sta
 /* ---- spouse ---- */
 (function(){
   const p=$('#spousePick');
-  [['none','No spouse'],['husband','Husband'],['wives','Wife or wives']].forEach(([k,l])=>{
-    const b=el('button',null,l); b.type='button'; b.setAttribute('aria-pressed',k===state.spouse);
+  ['none','husband','wives'].forEach(k=>{
+    const b=el('button',null,esc(tr('sp.'+k))); b.type='button'; b.setAttribute('aria-pressed',k===state.spouse);
     b.onclick=()=>{ state.spouse=k; p.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed','false')); b.setAttribute('aria-pressed','true'); syncSpouse(); buildHeirs(); render(); };
     p.appendChild(b);
   });
@@ -879,10 +1491,10 @@ function syncSpouse(){
 function stepper(k){
   const meta=HEIRS[k], max=meta.single?1:(meta.max||20);
   const node=el('div','stepper'+(state.heirs[k]>0?' on':''));
-  node.appendChild(el('div','nm','<span>'+esc(meta.label)+'</span><span class="ar">'+meta.ar+'</span>'));
+  node.appendChild(el('div','nm','<span>'+esc(heirName(k))+'</span><span class="ar">'+meta.ar+'</span>'));
   const minus=el('button',null,'−'), ct=el('div','ct',String(state.heirs[k])), plus=el('button',null,'+');
   minus.type='button'; plus.type='button';
-  minus.setAttribute('aria-label','One fewer '+meta.label); plus.setAttribute('aria-label','One more '+meta.label);
+  minus.setAttribute('aria-label',tr('ui.minus',{n:heirName(k)})); plus.setAttribute('aria-label',tr('ui.plus',{n:heirName(k)}));
   minus.disabled = state.heirs[k]<=0; plus.disabled = state.heirs[k]>=max;
   const bump=d=>{ state.heirs[k]=Math.max(0,Math.min(max,state.heirs[k]+d)); if(k==='wives')state.wives=Math.max(1,state.heirs[k]); buildHeirs(); render(); };
   minus.onclick=()=>bump(-1); plus.onclick=()=>bump(1);
@@ -892,17 +1504,17 @@ function stepper(k){
 function buildHeirs(){
   const host=$('#heirGroups'); host.innerHTML='';
   if(state.spouse==='wives'){
-    const g=el('div','hgroup'); g.appendChild(el('span','eyebrow','Wives — the eighth or the quarter is shared between them'));
+    const g=el('div','hgroup'); g.appendChild(el('span','eyebrow',esc(tr('ui.wivesHead'))));
     const gr=el('div','grid'); gr.appendChild(stepper('wives')); g.appendChild(gr); host.appendChild(g);
   }
   GROUPS.forEach(([id,title,keys])=>{
-    const g=el('div','hgroup'); g.appendChild(el('span','eyebrow',title));
+    const g=el('div','hgroup'); g.appendChild(el('span','eyebrow',esc(tr('grp.'+id))));
     const gr=el('div','grid'); keys.forEach(k=>gr.appendChild(stepper(k))); g.appendChild(gr); host.appendChild(g);
   });
   const d=el('details','arham'); if(state.open==='arham')d.open=true;
-  d.appendChild(el('summary',null,'Distant kindred (dhawū al-arḥām)'));
+  d.appendChild(el('summary',null,esc(tr('ui.arham.sum'))));
   const inner=el('div','inner');
-  inner.appendChild(el('p','why','Relatives linked through a female line. They inherit only when no fixed sharer besides a spouse and no male agnate survives. Leave these at zero unless that is the situation.'));
+  inner.appendChild(el('p','why',esc(tr('ui.arham.why'))));
   const gr=el('div','grid'); ARHAM_KEYS.forEach(k=>gr.appendChild(stepper(k)));
   inner.appendChild(gr); d.appendChild(inner);
   d.addEventListener('toggle',()=>{state.open=d.open?'arham':null;});
@@ -913,7 +1525,7 @@ function buildHeirs(){
 (function(){
   const p=$('#presets');
   PRESETS.forEach(([name,mad,heirs])=>{
-    const b=el('button','chip',name); b.type='button';
+    const b=el('button','chip',esc(tr(name))); b.type='button';
     b.onclick=()=>{
       for(const k in state.heirs) state.heirs[k]=0;
       Object.assign(state.heirs,heirs);
@@ -921,14 +1533,14 @@ function buildHeirs(){
       state.spouse = heirs.husband?'husband':(heirs.wives?'wives':'none');
       state.wives = heirs.wives||1;
       if(ARHAM_KEYS.some(k=>heirs[k])) state.open='arham';
-      $('#schools').querySelectorAll('.school').forEach((x,i)=>x.setAttribute('aria-pressed',SCHOOLS[i][0]===mad));
+      $('#schools').querySelectorAll('.school').forEach((x,i)=>x.setAttribute('aria-pressed',SCHOOLS[i]===mad));
       $('#spousePick').querySelectorAll('button').forEach((x,i)=>x.setAttribute('aria-pressed',['none','husband','wives'][i]===state.spouse));
       noteSchool(); buildHeirs(); render();
       $('#resultStep').scrollIntoView({behavior:'smooth',block:'start'});
     };
     p.appendChild(b);
   });
-  const c=el('button','chip clear','Clear everything'); c.type='button';
+  const c=el('button','chip clear',esc(tr('ui.clear'))); c.type='button';
   c.onclick=()=>{ for(const k in state.heirs) state.heirs[k]=0; state.spouse='none'; state.wives=1;
     $('#spousePick').querySelectorAll('button').forEach((x,i)=>x.setAttribute('aria-pressed',i===0));
     buildHeirs(); render(); };
@@ -959,25 +1571,25 @@ function render(){
 
 function drawLedger(t){
   const L=$('#ledger'); L.innerHTML='';
-  L.appendChild(el('span','eyebrow','What reaches the heirs'));
+  L.appendChild(el('span','eyebrow',esc(tr('ui.led.head'))));
   const row=(lab,val,cls)=>{ const d=el('div','lrow'+(cls?' '+cls:'')); d.appendChild(el('span',null,lab)); d.appendChild(el('span',null,val)); L.appendChild(d); };
-  row('Gross estate',money(t.gross));
-  row('Burial costs','− '+money(t.funeral),'minus');
-  row('Debts','− '+money(t.debts),'minus');
-  row('After obligations',money(t.afterDebt),'rule');
-  row('Bequest paid','− '+money(t.wasiyya),'minus');
-  row('Most the bequest may be','one third = '+money(t.wasiyyaCap),'muted');
-  row('Divided among the heirs',money(t.net),'rule total');
+  row(esc(tr('ui.led.gross')),money(t.gross));
+  row(esc(tr('ui.led.funeral')),'− '+money(t.funeral),'minus');
+  row(esc(tr('ui.led.debts')),'− '+money(t.debts),'minus');
+  row(esc(tr('ui.led.after')),money(t.afterDebt),'rule');
+  row(esc(tr('ui.led.wasiyya')),'− '+money(t.wasiyya),'minus');
+  row(esc(tr('ui.led.cap')),esc(tr('ui.led.capval',{v:money(t.wasiyyaCap)})),'muted');
+  row(esc(tr('ui.led.net')),money(t.net),'rule total');
 }
 
 function drawResult(r){
   const R=$('#result'); R.innerHTML='';
   if(r.empty){
     if(r.excluded.length){
-      R.appendChild(el('div','empty','<h3>Everyone named is barred</h3><p>Each relative you entered is excluded by someone nearer. Add a surviving heir who is not blocked, or check the list below.</p>'));
+      R.appendChild(el('div','empty','<h3>'+esc(tr('ui.empty.blocked.h'))+'</h3><p>'+esc(tr('ui.empty.blocked.b'))+'</p>'));
       R.appendChild(blockedBox(r.excluded));
     } else {
-      R.appendChild(el('div','empty','<h3>No heirs yet</h3><p>Add at least one surviving relative above, or load one of the classical problems to see how the arithmetic works.</p>'));
+      R.appendChild(el('div','empty','<h3>'+esc(tr('ui.empty.none.h'))+'</h3><p>'+esc(tr('ui.empty.none.b'))+'</p>'));
     }
     return;
   }
@@ -985,48 +1597,48 @@ function drawResult(r){
   /* base cell + state tags */
   const top=el('div','jadwal-top');
   const bc=el('div','basecell');
-  bc.appendChild(el('span','eyebrow','aṣl al-masʾala · the base'));
+  bc.appendChild(el('span','eyebrow',esc(tr('ui.base'))));
   const v=el('div','val'+(r.awl?' awl':''));
   v.innerHTML = r.awl
     ? '<span class="old">'+r.origBase+'</span><span class="arrow">→</span>'+r.base
     : String(r.base);
   bc.appendChild(v);
-  bc.appendChild(el('span','cap', r.awl ? 'raised by ʿawl' : 'shares fit the estate exactly'));
+  bc.appendChild(el('span','cap', esc(tr(r.awl ? 'ui.base.awl' : 'ui.base.ok'))));
   top.appendChild(bc);
 
   const sc=el('div','statecell');
-  if(r.caseName) sc.appendChild(el('span','tag case',r.caseName));
-  if(r.awl) sc.appendChild(el('span','tag awl','ʿawl to '+r.base));
-  if(r.radd) sc.appendChild(el('span','tag radd','radd'));
-  if(r.rows.some(x=>x.kind==='arham')) sc.appendChild(el('span','tag arham','dhawū al-arḥām'));
-  if(!r.awl&&!r.radd&&!r.caseName) sc.appendChild(el('span','tag ok','shares balance'));
-  sc.appendChild(el('span','tag ok',SCHOOLS.find(s=>s[0]===r.madhhab)[1]+' school'));
+  if(r.caseName) sc.appendChild(el('span','tag case',esc(tr(r.caseName))));
+  if(r.awl) sc.appendChild(el('span','tag awl',esc(tr('ui.tag.awl',{n:r.base}))));
+  if(r.radd) sc.appendChild(el('span','tag radd',esc(tr('ui.tag.radd'))));
+  if(r.rows.some(x=>x.kind==='arham')) sc.appendChild(el('span','tag arham',esc(tr('ui.tag.arham'))));
+  if(!r.awl&&!r.radd&&!r.caseName) sc.appendChild(el('span','tag ok',esc(tr('ui.tag.ok'))));
+  sc.appendChild(el('span','tag ok',esc(tr('ui.tag.school',{s:schName(r.madhhab)}))));
   top.appendChild(sc);
   R.appendChild(top);
 
   /* table */
   const tb=el('table','jadwal');
-  tb.innerHTML='<thead><tr><th>Heir</th><th>How many</th><th>Entitlement</th>'+
-    '<th class="col-units">Of '+r.base+'</th><th class="col-pct">Share</th><th>Amount</th><th></th></tr></thead>';
+  tb.innerHTML='<thead><tr><th>'+esc(tr('ui.th.heir'))+'</th><th>'+esc(tr('ui.th.count'))+'</th><th>'+esc(tr('ui.th.ent'))+'</th>'+
+    '<th class="col-units">'+esc(tr('ui.th.units',{n:r.base}))+'</th><th class="col-pct">'+esc(tr('ui.th.share'))+'</th><th>'+esc(tr('ui.th.amount'))+'</th><th></th></tr></thead>';
   const body=el('tbody');
   r.rows.forEach((row,i)=>{
-    const tr=el('tr','k-'+row.kind);
-    tr.innerHTML =
-      '<td><div class="heirname">'+esc(row.label)+'<span class="ar">'+row.ar+'</span></div></td>'+
+    const rowEl=el('tr','k-'+row.kind);
+    rowEl.innerHTML =
+      '<td><div class="heirname">'+esc(heirName(row.key,row.count))+'<span class="ar">'+row.ar+'</span></div></td>'+
       '<td class="cnt">'+row.count+'</td>'+
-      '<td class="fard">'+esc(row.fard)+'</td>'+
+      '<td class="fard">'+esc(tr(row.fard))+'</td>'+
       '<td class="units cell-units">'+row.units+'</td>'+
       '<td class="pct cell-pct">'+row.pct.toFixed(2)+'%</td>'+
-      '<td class="amt">'+money(row.amount)+(row.count>1?'<span class="each">'+money(row.perHead)+' each</span>':'')+'</td>';
-    const td=el('td'); const btn=el('button','whybtn','Why'); btn.type='button';
+      '<td class="amt">'+money(row.amount)+(row.count>1?'<span class="each">'+esc(tr('ui.each',{v:money(row.perHead)}))+'</span>':'')+'</td>';
+    const td=el('td'); const btn=el('button','whybtn',esc(tr('ui.why'))); btn.type='button';
     btn.setAttribute('aria-expanded','false');
-    td.appendChild(btn); tr.appendChild(td);
-    body.appendChild(tr);
+    td.appendChild(btn); rowEl.appendChild(td);
+    body.appendChild(rowEl);
 
     const ev=el('tr','eviderow'); ev.style.display='none';
-    ev.innerHTML='<td colspan="7"><div class="evid"><span class="src">'+esc(row.evidence[0])+'</span><p>'+esc(row.evidence[1])+'</p></div></td>';
+    ev.innerHTML='<td colspan="7"><div class="evid"><span class="src">'+esc(trOr('ev.'+row.evKey+'.src',row.evidence[0]))+'</span><p>'+esc(trOr('ev.'+row.evKey+'.txt',row.evidence[1]))+'</p></div></td>';
     body.appendChild(ev);
-    btn.onclick=()=>{ const o=ev.style.display==='none'; ev.style.display=o?'':'none'; btn.textContent=o?'Close':'Why'; btn.setAttribute('aria-expanded',String(o)); };
+    btn.onclick=()=>{ const o=ev.style.display==='none'; ev.style.display=o?'':'none'; btn.textContent=tr(o?'ui.close':'ui.why'); btn.setAttribute('aria-expanded',String(o)); };
   });
   tb.appendChild(body);
   R.appendChild(tb);
@@ -1036,21 +1648,21 @@ function drawResult(r){
   const col={fard:'var(--c-fard)',asabah:'var(--c-asabah)',both:'var(--c-asabah)',radd:'var(--c-radd)',arham:'var(--c-arham)'};
   r.rows.forEach(row=>{
     const s=el('div','seg'); s.style.width=row.pct+'%'; s.style.background=col[row.kind]||'var(--c-fard)';
-    s.title=row.label+' — '+row.pct.toFixed(2)+'%';
-    if(row.pct>7) s.appendChild(el('span',null,esc(row.label)));
+    const nm=heirName(row.key,row.count);
+    s.title=nm+' — '+row.pct.toFixed(2)+'%';
+    if(row.pct>7) s.appendChild(el('span',null,esc(nm)));
     rib.appendChild(s);
   });
   R.appendChild(rib);
   const kinds=[...new Set(r.rows.map(x=>x.kind==='both'?'asabah':x.kind))];
-  const kn={fard:'fixed share','asabah':'residue','radd':'returned surplus','arham':'distant kindred'};
   const lg=el('div','riblegend');
-  kinds.forEach(k=>lg.appendChild(el('span',null,'<i style="background:'+col[k]+'"></i>'+kn[k])));
+  kinds.forEach(k=>lg.appendChild(el('span',null,'<i style="background:'+col[k]+'"></i>'+esc(tr('kn.'+k)))));
   R.appendChild(lg);
 
   /* notes */
   if(r.notes.length){
     const n=el('div','notes');
-    r.notes.forEach(x=>{ const d=el('div','note '+x.t); d.appendChild(el('h3',null,x.h)); d.appendChild(el('p',null,x.b)); n.appendChild(d); });
+    r.notes.forEach(x=>{ const d=el('div','note '+x.t); d.appendChild(el('h3',null,esc(noteTx(x,'h')))); d.appendChild(el('p',null,esc(noteTx(x,'b')))); n.appendChild(d); });
     R.appendChild(n);
   }
   if(r.excluded.length) R.appendChild(blockedBox(r.excluded));
@@ -1058,9 +1670,9 @@ function drawResult(r){
 
 function blockedBox(list){
   const b=el('div','blocked');
-  b.appendChild(el('span','eyebrow','Barred from inheriting · ḥajb'));
+  b.appendChild(el('span','eyebrow',esc(tr('ui.blocked'))));
   const ul=el('ul');
-  list.forEach(x=>{ const li=el('li'); li.appendChild(el('span','who',(x.count>1?x.count+' ':'')+x.label)); li.appendChild(el('span','rz',x.reason)); ul.appendChild(li); });
+  list.forEach(x=>{ const li=el('li'); li.appendChild(el('span','who',(x.count>1?x.count+' ':'')+esc(heirName(x.key,x.count)))); li.appendChild(el('span','rz',esc(tr(x.reason)))); ul.appendChild(li); });
   b.appendChild(ul); return b;
 }
 
@@ -1069,19 +1681,20 @@ $('#printBtn').onclick=()=>window.print();
 $('#copyBtn').onclick=async()=>{
   const r=lastResult; if(!r||r.empty) return;
   const L=[];
-  L.push('DIVISION OF THE ESTATE — '+SCHOOLS.find(s=>s[0]===r.madhhab)[1]+' school');
-  L.push('Gross '+money(r.totals.gross)+'  |  burial '+money(r.totals.funeral)+'  |  debts '+money(r.totals.debts)+'  |  bequest '+money(r.totals.wasiyya));
-  L.push('Divided among the heirs: '+money(r.totals.net));
-  L.push('Base '+(r.awl?r.origBase+' raised by awl to '+r.base:r.base));
+  L.push(tr('ui.copy.title',{s:schName(r.madhhab)}));
+  L.push(tr('ui.copy.line1',{g:money(r.totals.gross),f:money(r.totals.funeral),d:money(r.totals.debts),w:money(r.totals.wasiyya)}));
+  L.push(tr('ui.copy.net',{v:money(r.totals.net)}));
+  L.push(tr('ui.copy.base',{v:(r.awl?tr('ui.copy.baseAwl',{a:r.origBase,b:r.base}):r.base)}));
   L.push('');
-  r.rows.forEach(x=>L.push([x.label+(x.count>1?' ('+x.count+')':''),x.fard,x.units+'/'+r.base,x.pct.toFixed(2)+'%',money(x.amount)].join('  |  ')));
-  if(r.excluded.length){ L.push(''); L.push('Barred:'); r.excluded.forEach(x=>L.push('  '+x.label+' — '+x.reason)); }
-  if(r.notes.length){ L.push(''); r.notes.forEach(n=>L.push(n.h+': '+n.b)); }
+  r.rows.forEach(x=>L.push([heirName(x.key,x.count)+(x.count>1?' ('+x.count+')':''),tr(x.fard),x.units+'/'+r.base,x.pct.toFixed(2)+'%',money(x.amount)].join('  |  ')));
+  if(r.excluded.length){ L.push(''); L.push(tr('ui.copy.barred')); r.excluded.forEach(x=>L.push('  '+heirName(x.key,x.count)+' — '+tr(x.reason))); }
+  if(r.notes.length){ L.push(''); r.notes.forEach(n=>L.push(noteTx(n,'h')+': '+noteTx(n,'b'))); }
   const txt=L.join('\n');
-  try{ await navigator.clipboard.writeText(txt); const b=$('#copyBtn'); b.textContent='Copied'; setTimeout(()=>b.textContent='Copy as text',1600); }
+  try{ await navigator.clipboard.writeText(txt); const b=$('#copyBtn'); b.textContent=tr('ui.copied'); setTimeout(()=>b.textContent=tr('ui.copy'),1600); }
   catch(e){ const t=document.createElement('textarea'); t.value=txt; document.body.appendChild(t); t.select(); document.execCommand('copy'); t.remove(); }
 };
 
+initLang();
 buildHeirs();
 render();
 </script>
