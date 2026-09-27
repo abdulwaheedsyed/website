@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Mīrāth — Islamic Inheritance Calculator</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='15' fill='%230E1428'/%3E%3Cg stroke='%230E1428' stroke-width='1.6'%3E%3Cpath d='M32 32L32 15A17 17 0 0 1 32 49Z' fill='%23D9A93E'/%3E%3Cpath d='M32 32L32 49A17 17 0 0 1 17.28 23.5Z' fill='%235FA48D'/%3E%3Cpath d='M32 32L17.28 23.5A17 17 0 0 1 32 15Z' fill='%238290DA'/%3E%3C/g%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;600;700&family=Noto+Serif+Devanagari:wght@400;500;600&display=swap" rel="stylesheet">
@@ -248,6 +249,7 @@ footer p{max-width:82ch}
 
 /* ---------- language ---------- */
 .langbar{display:flex;justify-content:center;gap:6px;margin-bottom:26px}
+.mastmark{display:block;width:58px;height:58px;margin:0 auto 20px}
 .langbtn{
   font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
   padding:7px 14px;border:1px solid var(--line-soft);background:transparent;color:var(--faint);
@@ -325,7 +327,7 @@ html[dir="rtl"] .amt .each{direction:rtl;text-align:left}
 @media (max-width:560px){
   html[dir="rtl"] .basecell{border-left:0;border-bottom:1px solid var(--line)}
 }
-@media print{.langbar{display:none}}
+@media print{.langbar,.mastmark{display:none}}
 </style>
 </head>
 <body>
@@ -334,6 +336,18 @@ html[dir="rtl"] .amt .each{direction:rtl;text-align:left}
 
 <header class="mast">
   <div class="langbar" id="langbar" role="group" aria-label="Language" data-i18n-label="ui.langLabel"></div>
+  <svg class="mastmark" viewBox="0 0 64 64" role="img" aria-label="Mīrāth">
+    <defs><linearGradient id="mirathbg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1D2748"/><stop offset="1" stop-color="#0E1428"/>
+    </linearGradient></defs>
+    <rect width="64" height="64" rx="15" fill="url(#mirathbg)"/>
+    <rect x=".8" y=".8" width="62.4" height="62.4" rx="14.2" fill="none" stroke="#D9A93E" stroke-opacity=".45" stroke-width="1.6"/>
+    <g stroke="#0E1428" stroke-width="1.6" stroke-linejoin="round">
+      <path d="M32 32L32 15A17 17 0 0 1 32 49Z" fill="#D9A93E"/>
+      <path d="M32 32L32 49A17 17 0 0 1 17.28 23.5Z" fill="#5FA48D"/>
+      <path d="M32 32L17.28 23.5A17 17 0 0 1 32 15Z" fill="#8290DA"/>
+    </g>
+  </svg>
   <div class="eyebrow" data-i18n-html="ui.eyebrow">ʿilm al-farāʾiḍ &nbsp;·&nbsp; the science of the ordained shares</div>
   <h1 data-i18n-html="ui.brand">Mī<span>rāth</span></h1>
   <p class="sub" data-i18n="ui.sub">Work out how an estate divides among surviving heirs under Sunni law — with the fixed shares, the blocking rules, the arithmetic, and the text each portion rests on.</p>
