@@ -23,7 +23,7 @@ body{
   background-image:radial-gradient(ellipse 90% 60% at 50% -10%,rgba(217,169,62,.10),transparent 70%);
   background-repeat:no-repeat;
 }
-.wrap{max-width:900px;margin:0 auto;padding:0 22px}
+.wrap{max-width:1000px;margin:0 auto;padding:0 22px}
 a{color:var(--brass)}
 .eyebrow{
   font-family:var(--mono);font-size:11px;letter-spacing:.2em;
@@ -43,7 +43,7 @@ a{color:var(--brass)}
 /* ---------- projects ---------- */
 .projects{padding:20px 0 40px;border-top:1px solid var(--line-soft)}
 .projects > .eyebrow{display:block;padding-top:34px;margin-bottom:22px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:18px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:18px}
 .card{
   display:flex;flex-direction:column;
   border:1px solid var(--line);background:var(--lapis2);
@@ -144,10 +144,88 @@ footer a:hover{color:var(--brass)}
           </svg>
           <div>
             <h2>Leafbind</h2>
-            <span class="tag">Go · Desktop &amp; command line</span>
+            <span class="tag">Go · Desktop &amp; CLI</span>
           </div>
         </div>
         <p>Converts PDFs into Kindle-compatible fixed-layout EPUB 3 books, every page kept exactly. One static binary, with a desktop GUI and a command line.</p>
+        <span class="go">View on GitHub</span>
+      </a>
+
+      <a class="card" href="https://github.com/abdulwaheedsyed/Rowsmith">
+        <div class="card__head">
+          <svg class="mark" role="img" aria-label="Rowsmith logo" viewBox="0 0 1024 1024">
+          <defs>
+          <clipPath id="rs-tile"><rect width="1024" height="1024" rx="224"/></clipPath>
+          <radialGradient id="rs-glow" gradientUnits="userSpaceOnUse" cx="540" cy="470" r="500">
+          <stop offset="0" stop-color="rgb(196,128,63)" stop-opacity="0.21"/><stop offset="1" stop-color="rgb(196,128,63)" stop-opacity="0"/>
+          </radialGradient>
+          <radialGradient id="rs-cool" gradientUnits="userSpaceOnUse" cx="760" cy="1100" r="720">
+          <stop offset="0" stop-color="rgb(61,122,212)" stop-opacity="0.10"/><stop offset="1" stop-color="rgb(61,122,212)" stop-opacity="0"/>
+          </radialGradient>
+          </defs>
+          <g clip-path="url(#rs-tile)">
+          <rect width="1024" height="1024" fill="#0b0f17"/>
+          <rect width="1024" height="1024" fill="url(#rs-cool)"/>
+          <rect width="1024" height="1024" fill="url(#rs-glow)"/>
+          <g transform="translate(172 351) scale(1.5455) translate(-760 -168)">
+          <defs>
+          <linearGradient id="rs-temper" x1="760" x2="1200" y1="0" y2="0" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stop-color="#ebc76a"/><stop offset=".45" stop-color="#c4803f"/>
+          <stop offset=".75" stop-color="#93508a"/><stop offset="1" stop-color="#3d7ad4"/>
+          </linearGradient>
+          <linearGradient id="rs-steel" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#d3d9e3"/><stop offset="1" stop-color="#aeb7c6"/></linearGradient>
+          <linearGradient id="rs-slate" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#95a0b2"/><stop offset="1" stop-color="#76829a"/></linearGradient>
+          <filter id="rs-heat" x="-20%" y="-80%" width="140%" height="260%"><feGaussianBlur stdDeviation="18"/></filter>
+          <linearGradient id="rs-tail0" gradientUnits="userSpaceOnUse" x1="1034.2" y1="147.9" x2="1020.7" y2="100.7"><stop offset="0" stop-color="#ffe3a0" stop-opacity="0"/><stop offset="1" stop-color="#ffe3a0" stop-opacity="0.90"/></linearGradient>
+          <linearGradient id="rs-tail1" gradientUnits="userSpaceOnUse" x1="1045.9" y1="111.4" x2="1051.1" y2="62.6"><stop offset="0" stop-color="#f0c766" stop-opacity="0"/><stop offset="1" stop-color="#f0c766" stop-opacity="0.74"/></linearGradient>
+          <linearGradient id="rs-tail2" gradientUnits="userSpaceOnUse" x1="1054.3" y1="138.7" x2="1075.1" y2="96.1"><stop offset="0" stop-color="#ffe3a0" stop-opacity="0"/><stop offset="1" stop-color="#ffe3a0" stop-opacity="0.85"/></linearGradient>
+          <linearGradient id="rs-tail3" gradientUnits="userSpaceOnUse" x1="1091.4" y1="114.8" x2="1122.0" y2="83.1"><stop offset="0" stop-color="#f0c766" stop-opacity="0"/><stop offset="1" stop-color="#f0c766" stop-opacity="0.69"/></linearGradient>
+          <linearGradient id="rs-tail4" gradientUnits="userSpaceOnUse" x1="1082.1" y1="145.6" x2="1119.5" y2="125.7"><stop offset="0" stop-color="#ffe3a0" stop-opacity="0"/><stop offset="1" stop-color="#ffe3a0" stop-opacity="0.81"/></linearGradient>
+          <linearGradient id="rs-tail5" gradientUnits="userSpaceOnUse" x1="1003.5" y1="104.7" x2="984.0" y2="71.0"><stop offset="0" stop-color="#f0c766" stop-opacity="0"/><stop offset="1" stop-color="#f0c766" stop-opacity="0.71"/></linearGradient>
+          </defs>
+          <path d="M760 168h440v80H930c-60 0-108-24-170-80z" fill="#c4803f" opacity="0.45" filter="url(#rs-heat)"/>
+          <path d="M760 168h440v80H930c-60 0-108-24-170-80z" fill="url(#rs-temper)"/>
+          <path d="M760 168h440v5H765z" fill="#fff" opacity="0.2"/>
+          <!-- waist, neck and base: the logo's bars, cut into cells -->
+          <g fill="url(#rs-steel)">
+          <rect x="900.0" y="266" width="62.7" height="60" rx="5"/>
+          <rect x="968.7" y="266" width="62.7" height="60" rx="5"/>
+          <rect x="1037.3" y="266" width="62.7" height="60" rx="5"/>
+          </g>
+          <g fill="url(#rs-slate)">
+          <rect x="940.0" y="340" width="57.0" height="50" rx="5"/>
+          <rect x="1003.0" y="340" width="57.0" height="50" rx="5"/>
+          </g>
+          <g fill="url(#rs-steel)">
+          <rect x="840.0" y="404" width="75.5" height="66" rx="5"/>
+          <rect x="921.5" y="404" width="75.5" height="66" rx="5"/>
+          <rect x="1003.0" y="404" width="75.5" height="66" rx="5"/>
+          <rect x="1084.5" y="404" width="75.5" height="66" rx="5"/>
+          </g>
+          <!-- sparks thrown from the strike point -->
+          <g>
+          <line x1="1034.2" y1="147.9" x2="1020.7" y2="100.7" stroke="url(#rs-tail0)" stroke-width="3.9" stroke-linecap="round"/>
+          <circle cx="1020.7" cy="100.7" r="2.2" fill="#fff4d6" opacity="0.90"/>
+          <line x1="1045.9" y1="111.4" x2="1051.1" y2="62.6" stroke="url(#rs-tail1)" stroke-width="3.9" stroke-linecap="round"/>
+          <circle cx="1051.1" cy="62.6" r="2.2" fill="#fff4d6" opacity="0.74"/>
+          <line x1="1054.3" y1="138.7" x2="1075.1" y2="96.1" stroke="url(#rs-tail2)" stroke-width="3.7" stroke-linecap="round"/>
+          <circle cx="1075.1" cy="96.1" r="2.1" fill="#fff4d6" opacity="0.85"/>
+          <line x1="1091.4" y1="114.8" x2="1122.0" y2="83.1" stroke="url(#rs-tail3)" stroke-width="3.4" stroke-linecap="round"/>
+          <circle cx="1122.0" cy="83.1" r="1.9" fill="#fff4d6" opacity="0.69"/>
+          <line x1="1082.1" y1="145.6" x2="1119.5" y2="125.7" stroke="url(#rs-tail4)" stroke-width="3.2" stroke-linecap="round"/>
+          <circle cx="1119.5" cy="125.7" r="1.8" fill="#fff4d6" opacity="0.81"/>
+          <line x1="1003.5" y1="104.7" x2="984.0" y2="71.0" stroke="url(#rs-tail5)" stroke-width="2.9" stroke-linecap="round"/>
+          <circle cx="984.0" cy="71.0" r="1.6" fill="#fff4d6" opacity="0.71"/>
+          </g>
+          </g>
+          </g>
+          </svg>
+          <div>
+            <h2>Rowsmith</h2>
+            <span class="tag">Go &middot; Self-hosted</span>
+          </div>
+        </div>
+        <p>A workspace for your databases in the browser — MySQL, PostgreSQL, SQL Server, Oracle, MongoDB, BigQuery and SQLite. Query, browse, edit and move data between engines. One binary, running on your own machine.</p>
         <span class="go">View on GitHub</span>
       </a>
 
