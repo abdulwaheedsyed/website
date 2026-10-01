@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Inheritance, worked out in the open — Syed Abdul Waheed</title>
+<meta name="description" content="Why Mīrāth exists: dividing an estate in a Muslim family, with authentic references everyone can check.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230D1117'/%3E%3Ctext x='32' y='43' font-family='monospace' font-size='34' font-weight='700' fill='%233FB950' text-anchor='middle'%3E%24%3C/text%3E%3C/svg%3E">
+<script>
+(function(){try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+</script>
+<style>
+:root{
+  --bg:#ffffff; --panel:#f6f8fa; --border:#d1d9e0;
+  --text:#1f2328; --dim:#59636e; --faint:#67707b;
+  --green:#1a7f37; --blue:#0969da; --amber:#9a6700; --red:#cf222e; --purple:#8250df;
+  --code:#eff2f5;
+  --mono:ui-monospace,'SF Mono','Cascadia Mono','Roboto Mono',Menlo,Consolas,'Liberation Mono',monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0d1117; --panel:#161b22; --border:#30363d;
+    --text:#e6edf3; --dim:#9198a1; --faint:#7d8590;
+    --green:#3fb950; --blue:#58a6ff; --amber:#d29922; --red:#f85149; --purple:#bc8cff;
+    --code:#1c2230;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0d1117; --panel:#161b22; --border:#30363d;
+  --text:#e6edf3; --dim:#9198a1; --faint:#7d8590;
+  --green:#3fb950; --blue:#58a6ff; --amber:#d29922; --red:#f85149; --purple:#bc8cff;
+  --code:#1c2230;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--mono);font-size:14.5px;line-height:1.75;-webkit-font-smoothing:antialiased}
+a{color:var(--blue)}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px}
+.chrome{position:sticky;top:0;z-index:10;background:var(--panel);border-bottom:1px solid var(--border)}
+.chrome__in{display:flex;align-items:center;gap:14px;height:44px}
+.dots{display:flex;gap:7px;flex:none}
+.dots i{width:11px;height:11px;border-radius:50%;display:block}
+.dots i:nth-child(1){background:var(--red)}.dots i:nth-child(2){background:var(--amber)}.dots i:nth-child(3){background:var(--green)}
+.path{flex:1;text-align:center;font-size:12.5px;color:var(--dim);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.tbtn{flex:none;display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);font-size:12px;color:var(--dim);background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:4px 9px;cursor:pointer}
+.tbtn:hover{border-color:var(--blue);color:var(--blue)}
+main{padding:34px 0 0}
+.back{margin:0 0 26px;font-size:13px}
+.back a{color:var(--dim);text-decoration:none}
+.back a:hover{color:var(--blue)}
+.cmd{color:var(--dim);font-size:13.5px;margin:0 0 14px}
+.cmd b{color:var(--green);margin-right:9px}
+.cmd em{font-style:normal;color:var(--text)}
+.meta{color:var(--faint);font-size:12.5px;margin:0 0 8px}
+.meta .proj{color:var(--purple)}
+article h1{margin:0 0 26px;font-size:clamp(24px,4.4vw,33px);line-height:1.2;letter-spacing:-.015em}
+article h2{margin:34px 0 10px;font-size:15.5px;color:var(--text)}
+article h2::before{content:'## ';color:var(--faint)}
+article p{margin:0 0 16px;max-width:68ch}
+article em{font-style:normal;color:var(--amber)}
+article code{background:var(--code);border:1px solid var(--border);border-radius:4px;padding:0 5px;font-size:.92em}
+.next{margin:30px 0 0;padding:16px 0 0;border-top:1px solid var(--border);font-size:13.5px}
+.next a{text-decoration:none}.next a:hover{text-decoration:underline}
+.caret{display:inline-block;width:8px;height:1.05em;background:var(--green);vertical-align:-2px;margin-left:4px;animation:blink 1.15s steps(1) infinite}
+@keyframes blink{0%,49%{opacity:1}50%,100%{opacity:0}}
+footer{margin-top:34px;padding:22px 0 60px;color:var(--faint);font-size:12.5px;border-top:1px solid var(--border)}
+:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+@media (max-width:640px){body{font-size:14px}.path{font-size:11.5px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+
+<header class="chrome">
+  <div class="wrap chrome__in">
+    <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+    <span class="path">~/notes/mirath.md — zsh</span>
+    <button class="tbtn" id="theme" type="button" aria-label="Switch colour theme">
+      <span id="themeIcon" aria-hidden="true">◐</span><span id="themeLabel">theme</span>
+    </button>
+  </div>
+</header>
+
+<div class="wrap">
+  <main>
+    <p class="back"><a href="../index.html">&larr; cd ~</a></p>
+    <p class="cmd"><b>$</b><em>cat</em> ~/notes/mirath.md</p>
+
+    <article>
+      <p class="meta">2026-08-06 &middot; <span class="proj">mirath/</span></p>
+      <h1>Inheritance, worked out in the open</h1>
+      <p>When someone in a Muslim family dies, their estate has to be divided among the heirs. It is a real requirement, it comes at the hardest possible time, and it is where a lot of family conflict starts: who is owed what, and on whose authority.</p>
+      <p>The rules themselves are unusually exact. The Qurʾan fixes the shares — a half, a quarter, a sixth — and the classical scholars spent centuries working out what happens when those shares collide. What is often missing in the moment is a reference everyone can look at together, with authentic sources attached. That is the idea behind Mīrāth.</p>
+      <p>A number on its own asks you to take it on trust, so the calculator shows its working. Every share comes with the rule that produced it, the arithmetic behind it, and the verse or hadith it rests on, one click away under <em>Why</em>. Relatives who inherit nothing are listed too, with the reason they are barred. When a family disagrees, everyone is at least looking at the same reference, with the same sources.</p>
+      
+      <h2>The schools disagree, so the calculator does too</h2>
+      <p>The four Sunni schools mostly agree, but not entirely: the grandfather against the brothers, the return of a surplus, the famous donkey problem. Switching schools changes the arithmetic exactly where they differ, and the reason is given next to the result. The classical problem cases — al-ʿUmariyyatān, al-Akdariyya, al-Mushtaraka — are built in, so you can watch the well-known ones resolve.</p>
+      
+      <h2>Exact fractions, not decimals</h2>
+      <p>When the fixed shares add up to more than the whole estate, <em>ʿawl</em> raises the base so every heir is reduced in proportion. Floating point can quietly lose that, leaving shares that no longer sum exactly to the whole. Mīrāth keeps everything as exact fractions, so a base of 24 raised to 27 stays exactly 27.</p>
+      
+      <h2>In the language people speak at home</h2>
+      <p>It reads in English, Urdu and Hindi. Urdu runs right to left in Nastaliq, which needed care: letter-spacing breaks the joins between letters, and splitting one word across two styled spans breaks its shaping. That mattered more than it sounds. This is a page about family, and it should read naturally to the people using it.</p>
+      
+      <h2>What it isn't</h2>
+      <p>It is a study aid, not a ruling. It knows nothing of who predeceased whom, whether a marriage is established, or debts nobody entered. Any real distribution should be confirmed by someone qualified.</p>
+      <p class="next"><a href="../islamic-inheritance-calculator.html">Open the calculator &rarr;</a></p>
+    </article>
+
+    <p class="cmd" style="margin-top:34px"><b>$</b><span class="caret" aria-hidden="true"></span></p>
+  </main>
+
+  <footer>Built to last, not to scale. No trackers, no cookies, no build step.</footer>
+</div>
+
+<script>
+(function(){
+  var root=document.documentElement, btn=document.getElementById('theme');
+  var icon=document.getElementById('themeIcon'), label=document.getElementById('themeLabel');
+  var mq=window.matchMedia('(prefers-color-scheme: dark)');
+  function eff(){var s=root.getAttribute('data-theme');return (s==='light'||s==='dark')?s:(mq.matches?'dark':'light');}
+  function paint(){var t=eff();icon.textContent=t==='dark'?'☾':'☀';label.textContent=t;btn.setAttribute('aria-label','Switch to '+(t==='dark'?'light':'dark')+' theme');}
+  btn.addEventListener('click',function(){var n=eff()==='dark'?'light':'dark';root.setAttribute('data-theme',n);try{localStorage.setItem('theme',n);}catch(e){}paint();});
+  if(mq.addEventListener)mq.addEventListener('change',paint);
+  paint();
+})();
+</script>
+
+</body>
+</html>

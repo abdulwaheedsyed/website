@@ -97,6 +97,27 @@ h1{
 .earr{color:var(--faint);justify-self:end;transition:transform .18s,color .18s}
 .entry:hover .earr{color:var(--blue);transform:translateX(3px)}
 
+/* ---------- notes listing ---------- */
+.nrow{
+  display:grid;align-items:center;gap:14px;
+  grid-template-columns:92px 1fr auto 16px;
+  padding:12px 15px;text-decoration:none;color:inherit;
+  border-bottom:1px solid var(--border);transition:background .15s
+}
+.nrow:last-child{border-bottom:0}
+.nrow:hover,.nrow:focus-visible{background:var(--panel2)}
+.ndate{color:var(--faint);font-size:12.5px;white-space:nowrap}
+.ntitle{color:var(--text);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.nrow:hover .ntitle{color:var(--blue);text-decoration:underline}
+.nproj{color:var(--purple);font-size:12.5px;white-space:nowrap}
+.nrow:hover .earr{color:var(--blue);transform:translateX(3px)}
+@media (max-width:640px){
+  .nrow{grid-template-columns:1fr 16px;row-gap:2px}
+  .ndate{grid-column:1;order:-1}
+  .ntitle{grid-column:1;white-space:normal}
+  .nproj{display:none}
+}
+
 /* ---------- prose ---------- */
 .out{max-width:66ch;color:var(--text)}
 .out p{margin:0 0 15px}
@@ -284,7 +305,26 @@ footer{
 
     <section class="block">
       <p class="cmd"><b>$</b><em>ls</em> ~/notes</p>
-      <div class="out muted"><p><span class="hash">#</span> nothing published yet — this is where writing will go</p></div>
+      <div class="listing">
+        <a class="nrow" href="notes/mirath.html">
+          <span class="ndate">2026-08-06</span>
+          <span class="ntitle">Inheritance, worked out in the open</span>
+          <span class="nproj">mirath/</span>
+          <span class="earr" aria-hidden="true">&rarr;</span>
+        </a>
+        <a class="nrow" href="notes/leafbind.html">
+          <span class="ndate">2026-09-25</span>
+          <span class="ntitle">Getting a PDF onto a Kindle, page for page</span>
+          <span class="nproj">leafbind/</span>
+          <span class="earr" aria-hidden="true">&rarr;</span>
+        </a>
+        <a class="nrow" href="notes/rowsmith.html">
+          <span class="ndate">2026-09-29</span>
+          <span class="ntitle">One workspace for every database</span>
+          <span class="nproj">rowsmith/</span>
+          <span class="earr" aria-hidden="true">&rarr;</span>
+        </a>
+      </div>
     </section>
 
     <section class="block">
