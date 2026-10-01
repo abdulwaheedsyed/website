@@ -1,0 +1,168 @@
+/* sawaheed.com — shared styles for the landing page and notes.
+   The Mīrāth calculator has its own design and keeps its own styles. */
+
+/* ---------- theme ---------- */
+:root{
+  --bg:#ffffff; --panel:#f6f8fa; --panel2:#eef1f4; --border:#d1d9e0;
+  --text:#1f2328; --dim:#59636e; --faint:#67707b;
+  --green:#1a7f37; --blue:#0969da; --amber:#9a6700; --red:#cf222e; --purple:#8250df;
+  --code:#eff2f5;
+  --mono:ui-monospace,'SF Mono','Cascadia Mono','Roboto Mono',Menlo,Consolas,'Liberation Mono',monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0d1117; --panel:#161b22; --panel2:#1c2230; --border:#30363d;
+    --text:#e6edf3; --dim:#9198a1; --faint:#7d8590;
+    --green:#3fb950; --blue:#58a6ff; --amber:#d29922; --red:#f85149; --purple:#bc8cff;
+    --code:#1c2230;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0d1117; --panel:#161b22; --panel2:#1c2230; --border:#30363d;
+  --text:#e6edf3; --dim:#9198a1; --faint:#7d8590;
+  --green:#3fb950; --blue:#58a6ff; --amber:#d29922; --red:#f85149; --purple:#bc8cff;
+  --code:#1c2230;
+}
+
+/* ---------- base ---------- */
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--bg);color:var(--text);
+  font-family:var(--mono);font-size:14.5px;line-height:1.7;
+  -webkit-font-smoothing:antialiased
+}
+a{color:var(--blue)}
+.wrap{max-width:860px;margin:0 auto;padding:0 20px}
+
+/* ---------- window chrome ---------- */
+.chrome{
+  position:sticky;top:0;z-index:10;background:var(--panel);
+  border-bottom:1px solid var(--border)
+}
+.chrome__in{display:flex;align-items:center;gap:14px;height:44px}
+.dots{display:flex;gap:7px;flex:none}
+.dots i{width:11px;height:11px;border-radius:50%;display:block}
+.dots i:nth-child(1){background:var(--red)}
+.dots i:nth-child(2){background:var(--amber)}
+.dots i:nth-child(3){background:var(--green)}
+.path{flex:1;text-align:center;font-size:12.5px;color:var(--dim);letter-spacing:.02em;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.tbtn{
+  flex:none;display:inline-flex;align-items:center;gap:7px;
+  font-family:var(--mono);font-size:12px;color:var(--dim);
+  background:var(--bg);border:1px solid var(--border);border-radius:6px;
+  padding:4px 9px;cursor:pointer;transition:border-color .15s,color .15s
+}
+.tbtn:hover{border-color:var(--blue);color:var(--blue)}
+
+/* ---------- shell prompt ---------- */
+main{padding:38px 0 0}
+.cmd{color:var(--dim);font-size:13.5px}
+.cmd b{color:var(--green);font-weight:700;margin-right:9px}
+.cmd em{font-style:normal;color:var(--text)}
+.cmd .flag{color:var(--amber)}
+
+.caret{display:inline-block;width:8px;height:1.05em;background:var(--green);
+  vertical-align:-2px;margin-left:4px;animation:blink 1.15s steps(1) infinite}
+@keyframes blink{0%,49%{opacity:1}50%,100%{opacity:0}}
+
+footer{
+  margin-top:10px;padding:22px 0 60px;color:var(--faint);font-size:12.5px;
+  border-top:1px solid var(--border)
+}
+
+:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+
+/* ============ landing page ============ */
+.page-home .cmd{margin-bottom:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.block{margin-bottom:38px}
+
+.page-home h1{
+  margin:0;font-weight:700;letter-spacing:-.02em;line-height:1.1;
+  font-size:clamp(29px,5.6vw,46px)
+}
+.tagline{margin:14px 0 0;color:var(--dim);max-width:62ch}
+
+/* project listing */
+.listing{border:1px solid var(--border);border-radius:8px;overflow:hidden;background:var(--panel)}
+.entry{
+  display:grid;align-items:center;gap:14px;
+  grid-template-columns:26px 112px 46px 1fr 16px;
+  padding:13px 15px;text-decoration:none;color:inherit;
+  border-bottom:1px solid var(--border);transition:background .15s
+}
+.entry:last-child{border-bottom:0}
+.entry:hover,.entry:focus-visible{background:var(--panel2)}
+.icon{width:26px;height:26px;border-radius:6px;overflow:hidden;display:block;flex:none}
+.icon svg{width:100%;height:100%;display:block}
+.ename{color:var(--blue);font-weight:700;white-space:nowrap}
+.entry:hover .ename{text-decoration:underline}
+.elang{color:var(--purple);font-size:12.5px;white-space:nowrap}
+.edesc{color:var(--dim);font-size:13.5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.earr{color:var(--faint);justify-self:end;transition:transform .18s,color .18s}
+.entry:hover .earr{color:var(--blue);transform:translateX(3px)}
+
+/* notes listing */
+.nrow{
+  display:grid;align-items:center;gap:14px;
+  grid-template-columns:92px 1fr auto 16px;
+  padding:12px 15px;text-decoration:none;color:inherit;
+  border-bottom:1px solid var(--border);transition:background .15s
+}
+.nrow:last-child{border-bottom:0}
+.nrow:hover,.nrow:focus-visible{background:var(--panel2)}
+.ndate{color:var(--faint);font-size:12.5px;white-space:nowrap}
+.ntitle{color:var(--text);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.nrow:hover .ntitle{color:var(--blue);text-decoration:underline}
+.nproj{color:var(--purple);font-size:12.5px;white-space:nowrap}
+.nrow:hover .earr{color:var(--blue);transform:translateX(3px)}
+
+/* prose and contact */
+.out{max-width:66ch;color:var(--text)}
+.out p{margin:0 0 15px}
+.out p:last-child{margin-bottom:0}
+.muted{color:var(--faint)}
+.hash{color:var(--faint)}
+.kv{display:grid;grid-template-columns:76px 1fr;gap:6px 14px;max-width:62ch}
+.kv dt{color:var(--dim)}
+.kv dd{margin:0}
+.kv a{text-decoration:none}
+.kv a:hover{text-decoration:underline}
+
+/* ============ notes ============ */
+.page-note{line-height:1.75}
+.page-note .wrap{max-width:760px}
+.page-note main{padding-top:34px}
+.page-note .cmd{margin:0 0 14px}
+.page-note .cmd--end{margin-top:34px}
+.page-note footer{margin-top:34px}
+.page-note .back{margin:0 0 26px;font-size:13px}
+.page-note .back a{color:var(--dim);text-decoration:none}
+.page-note .back a:hover{color:var(--blue)}
+.page-note .meta{color:var(--faint);font-size:12.5px;margin:0 0 8px}
+.page-note .meta .proj{color:var(--purple)}
+.page-note article h1{margin:0 0 26px;font-size:clamp(24px,4.4vw,33px);line-height:1.2;letter-spacing:-.015em}
+.page-note article h2{margin:34px 0 10px;font-size:15.5px;color:var(--text)}
+.page-note article h2::before{content:'## ';color:var(--faint)}
+.page-note article p{margin:0 0 16px;max-width:68ch}
+.page-note article em{font-style:normal;color:var(--amber)}
+.page-note article code{background:var(--code);border:1px solid var(--border);border-radius:4px;padding:0 5px;font-size:.92em}
+.page-note .next{margin:30px 0 0;padding:16px 0 0;border-top:1px solid var(--border);font-size:13.5px}
+.page-note .next a{text-decoration:none}
+.page-note .next a:hover{text-decoration:underline}
+
+/* ---------- small screens ---------- */
+@media (max-width:640px){
+  body{font-size:14px}
+  .path{font-size:11.5px}
+  .entry{grid-template-columns:26px 1fr 16px;gap:12px;row-gap:3px}
+  .elang{display:none}
+  .edesc{grid-column:2 / 4;white-space:normal;font-size:13px}
+  .kv{grid-template-columns:62px 1fr}
+  .nrow{grid-template-columns:1fr 16px;row-gap:2px}
+  .ndate{grid-column:1;order:-1}
+  .ntitle{grid-column:1;white-space:normal}
+  .nproj{display:none}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}

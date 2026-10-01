@@ -1,8 +1,7 @@
 # sawaheed.com
 
-The source for my personal site. Plain HTML and CSS — no build step, no framework,
-no dependencies. Each page is a single self-contained file, served straight from
-GitHub Pages.
+The source for my personal site. Plain HTML, CSS and a little JavaScript — no build
+step, no framework, no dependencies — served straight from GitHub Pages.
 
 ## Layout
 
@@ -11,6 +10,10 @@ GitHub Pages.
 | `index.html` | Landing page — a terminal-style session: intro, projects, about, notes, contact |
 | `islamic-inheritance-calculator.html` | Mīrāth (see below) |
 | `notes/` | One page per note, listed on the landing page under `ls ~/notes` |
+| `assets/site.css` | Styles shared by the landing page and the notes |
+| `assets/site.js` | The light/dark toggle |
+| `assets/theme-init.js` | Applies a saved theme before first paint, so it never flashes |
+| `assets/favicon.svg` | The site icon |
 | `CNAME` | The custom domain |
 
 Projects with their own repositories are listed under [Elsewhere](#elsewhere); the
@@ -67,9 +70,9 @@ team vault and scheduled queries. One binary. *Go.*
 
 ## Adding a note
 
-1. Copy an existing page in `notes/` to `notes/<slug>.html`. Each note is
-   self-contained — its own styles and theme toggle — so nothing else needs to
-   change for it to work.
+1. Copy an existing page in `notes/` to `notes/<slug>.html`. It already links the
+   shared files in `assets/` and carries the security policy, so nothing else
+   needs to change for it to work.
 2. Update the `<title>`, the description `<meta>`, the path in the window bar
    (`~/notes/<slug>.md`), the `cat` line, the date and project in the meta line,
    and the body. Write the body as plain `<p>` and `<h2>`; headings pick up their
@@ -81,14 +84,50 @@ team vault and scheduled queries. One binary. *Go.*
 Dates are `YYYY-MM-DD`. A note about a project is dated by that project's
 inception: the author date of its first commit.
 
-Every note carries its own copy of the styles, as does the landing page. A visual
-change has to be made in each of them, so keep that in mind before restyling.
+Styles live in `assets/site.css`. Rules for the landing page only are scoped under
+`.page-home` and rules for notes only under `.page-note` — the class on each page's
+`<body>` — so a change to shared parts like the window bar applies everywhere.
+The Mīrāth calculator is a separate design and keeps its own styles.
+
+## Security
+
+GitHub Pages cannot send custom HTTP headers, so the landing page and every note
+carry their security policy in a `<meta>` tag instead:
+
+```
+default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self';
+base-uri 'none'; form-action 'none'
+```
+
+Only files served from this site may run or style the page; nothing third-party
+loads. That rules out, deliberately:
+
+- **inline `<script>`, `<style>` and `style="…"`** — put code in `assets/` instead;
+- **`data:` URIs**, including for images and icons — use a file;
+- **any third-party request** — fonts, analytics, embeds, images from elsewhere. If
+  one is ever genuinely needed, add its exact origin to the policy rather than
+  loosening it.
+
+A `<meta>` policy cannot set `frame-ancestors`, and GitHub Pages cannot send
+`X-Frame-Options`, so the site cannot stop itself being framed. With no forms or
+sign-in, there is nothing worth clickjacking.
+
+The Mīrāth calculator does not carry this policy yet: it uses inline styles and
+scripts and loads the Urdu and Hindi webfonts from Google Fonts.
 
 ## Running it
 
-Open any of the HTML files in a browser — that is the whole thing. Nothing is
-fetched at runtime except the Urdu and Hindi webfonts, which fall back to system
-fonts if they don't load.
+Serve the folder over HTTP and open it, the same way GitHub Pages serves it:
+
+```
+python3 -m http.server 8000
+```
+
+then visit `http://localhost:8000`. Opening the files straight from disk is not
+reliable: the security policy only allows files from the site's own origin, and
+browsers treat files on disk inconsistently, so the shared styles and scripts may
+be refused. Nothing is fetched at runtime except the Urdu and Hindi webfonts on the
+calculator, which fall back to system fonts if they don't load.
 
 ## Deploying
 
