@@ -290,7 +290,7 @@ footer{
     <section class="block">
       <p class="cmd"><b>$</b><em>cat</em> contact.txt</p>
       <dl class="kv">
-        <dt>email</dt><dd><a href="mailto:abdulwaheedsyed@gmail.com">abdulwaheedsyed@gmail.com</a></dd>
+        <dt>email</dt><dd><span class="email" data-u="deysdeehawludba" data-d="moc.liamg">abdulwaheedsyed [at] gmail [dot] com</span></dd>
         <dt>github</dt><dd><a href="https://github.com/abdulwaheedsyed">github.com/abdulwaheedsyed</a></dd>
         <dt>site</dt><dd><span class="muted">sawaheed.com</span></dd>
       </dl>
@@ -333,6 +333,21 @@ footer{
   /* follow the system until the visitor has chosen for themselves */
   if(mq.addEventListener) mq.addEventListener('change', paint);
   paint();
+})();
+
+/* The address is stored split and reversed, so neither the literal string nor
+   even an "@" appears in the markup. Harvesters that scrape the raw HTML get
+   nothing usable; people with scripting off still read it in plain words. This
+   stops the naive crawlers, not a determined one. */
+(function(){
+  var el = document.querySelector('.email');
+  if(!el) return;
+  function rev(x){ return x.split('').reverse().join(''); }
+  var addr = rev(el.getAttribute('data-u')) + String.fromCharCode(64) + rev(el.getAttribute('data-d'));
+  var a = document.createElement('a');
+  a.href = 'mailto:' + addr;
+  a.textContent = addr;
+  el.parentNode.replaceChild(a, el);
 })();
 </script>
 
