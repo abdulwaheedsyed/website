@@ -12,8 +12,8 @@ GitHub Pages.
 | `islamic-inheritance-calculator.html` | Mīrāth (see below) |
 | `CNAME` | The custom domain |
 
-Projects with their own repositories are linked from the landing page rather than
-kept here.
+Projects with their own repositories are listed under [Elsewhere](#elsewhere); the
+landing page links to them, but their code is not kept here.
 
 ## Projects
 
@@ -40,14 +40,31 @@ Hindi, right-to-left included.
 > that departs from the classical rules. Have any actual distribution confirmed by
 > someone qualified.
 
+## Elsewhere
+
+Linked from the landing page, but living in their own repositories.
+
+**[Leafbind](https://github.com/abdulwaheedsyed/leafbind)** — converts PDFs into
+Kindle-compatible fixed-layout EPUB 3 books, every page kept exactly. One static
+binary with a desktop GUI and a command line, for Linux, macOS and Windows. *Go.*
+
+**[Rowsmith](https://github.com/abdulwaheedsyed/Rowsmith)** — a self-hosted web
+workspace for MySQL, MariaDB, PostgreSQL, SQL Server, Oracle, MongoDB, BigQuery
+and SQLite. Query, browse, edit and migrate across engines, with SSH tunnels, a
+team vault and scheduled queries. One binary. *Go.*
+
 ## Adding a project
 
 1. If it is a page, drop the single HTML file at the repo root.
 2. Add a card to the grid in `index.html` — copy an existing `<a class="card">`
    block and swap the logo, title, tag and description. Give each inline `<svg>`
    a **unique gradient id**; duplicate ids across two inline SVGs break the fills.
-3. If it lives in its own repository, point the card's `href` there instead.
-4. Add a `###` section here if it needs more than the card explains.
+   If the project already has its own icon, reuse that rather than drawing a new
+   one, and prefix its ids to keep them unique.
+3. If it lives in its own repository, point the card's `href` there and add it to
+   [Elsewhere](#elsewhere) instead of giving it a section under Projects.
+4. Watch the card count against the grid: the columns are `minmax(290px, 1fr)`
+   inside a 1000px page, so four cards will want a wider page or a lower floor.
 
 ## Running it
 
