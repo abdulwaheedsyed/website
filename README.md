@@ -8,8 +8,9 @@ GitHub Pages.
 
 | File | Purpose |
 | --- | --- |
-| `index.html` | Landing page — a short intro and a card per project |
+| `index.html` | Landing page — a terminal-style session: intro, projects, about, notes, contact |
 | `islamic-inheritance-calculator.html` | Mīrāth (see below) |
+| `notes/` | One page per note, listed on the landing page under `ls ~/notes` |
 | `CNAME` | The custom domain |
 
 Projects with their own repositories are listed under [Elsewhere](#elsewhere); the
@@ -56,15 +57,32 @@ team vault and scheduled queries. One binary. *Go.*
 ## Adding a project
 
 1. If it is a page, drop the single HTML file at the repo root.
-2. Add a card to the grid in `index.html` — copy an existing `<a class="card">`
-   block and swap the logo, title, tag and description. Give each inline `<svg>`
-   a **unique gradient id**; duplicate ids across two inline SVGs break the fills.
-   If the project already has its own icon, reuse that rather than drawing a new
-   one, and prefix its ids to keep them unique.
-3. If it lives in its own repository, point the card's `href` there and add it to
+2. Add a row to the `ls -l ~/projects` listing in `index.html` — copy an existing
+   `<a class="entry">` block and swap the icon, name, language and description.
+   Give each inline `<svg>` a **unique gradient id**; duplicate ids across two
+   inline SVGs break the fills. If the project already has its own icon, reuse
+   that rather than drawing a new one, and prefix its ids to keep them unique.
+3. If it lives in its own repository, point the row's `href` there and add it to
    [Elsewhere](#elsewhere) instead of giving it a section under Projects.
-4. Watch the card count against the grid: the columns are `minmax(290px, 1fr)`
-   inside a 1000px page, so four cards will want a wider page or a lower floor.
+
+## Adding a note
+
+1. Copy an existing page in `notes/` to `notes/<slug>.html`. Each note is
+   self-contained — its own styles and theme toggle — so nothing else needs to
+   change for it to work.
+2. Update the `<title>`, the description `<meta>`, the path in the window bar
+   (`~/notes/<slug>.md`), the `cat` line, the date and project in the meta line,
+   and the body. Write the body as plain `<p>` and `<h2>`; headings pick up their
+   `##` prefix from the stylesheet. Use `<em>` for terms and `<code>` for code.
+3. Add a row to the `ls ~/notes` listing in `index.html` — copy an existing
+   `<a class="nrow">` block.
+4. Links inside a note are relative to `notes/`, so home is `../index.html`.
+
+Dates are `YYYY-MM-DD`. A note about a project is dated by that project's
+inception: the author date of its first commit.
+
+Every note carries its own copy of the styles, as does the landing page. A visual
+change has to be made in each of them, so keep that in mind before restyling.
 
 ## Running it
 
