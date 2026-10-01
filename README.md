@@ -14,6 +14,10 @@ step, no framework, no dependencies — served straight from GitHub Pages.
 | `assets/site.js` | The light/dark toggle |
 | `assets/theme-init.js` | Applies a saved theme before first paint, so it never flashes |
 | `assets/favicon.svg` | The site icon |
+| `assets/mirath.css` | The calculator's styles, including its webfont rules |
+| `assets/mirath.js` | The calculator: the inheritance engine, the three languages and the interface |
+| `assets/mirath-favicon.svg` | The calculator's icon |
+| `assets/fonts/` | The calculator's self-hosted Urdu and Hindi webfonts, with their licences |
 | `CNAME` | The custom domain |
 
 Projects with their own repositories are listed under [Elsewhere](#elsewhere); the
@@ -87,19 +91,22 @@ inception: the author date of its first commit.
 Styles live in `assets/site.css`. Rules for the landing page only are scoped under
 `.page-home` and rules for notes only under `.page-note` — the class on each page's
 `<body>` — so a change to shared parts like the window bar applies everywhere.
-The Mīrāth calculator is a separate design and keeps its own styles.
+The Mīrāth calculator is a separate design, with its own `assets/mirath.css`.
 
 ## Security
 
-GitHub Pages cannot send custom HTTP headers, so the landing page and every note
-carry their security policy in a `<meta>` tag instead:
+GitHub Pages cannot send custom HTTP headers, so every page carries its security
+policy in a `<meta>` tag instead:
 
 ```
 default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self';
 base-uri 'none'; form-action 'none'
 ```
 
-Only files served from this site may run or style the page; nothing third-party
+The calculator's policy adds `font-src 'self'` for its webfonts; the other pages
+use system fonts and need no font source at all.
+
+Only files served from this site may run or style a page; nothing third-party
 loads. That rules out, deliberately:
 
 - **inline `<script>`, `<style>` and `style="…"`** — put code in `assets/` instead;
@@ -112,8 +119,15 @@ A `<meta>` policy cannot set `frame-ancestors`, and GitHub Pages cannot send
 `X-Frame-Options`, so the site cannot stop itself being framed. With no forms or
 sign-in, there is nothing worth clickjacking.
 
-The Mīrāth calculator does not carry this policy yet: it uses inline styles and
-scripts and loads the Urdu and Hindi webfonts from Google Fonts.
+Scripts must not inject `style="…"` either, through `innerHTML` or `setAttribute`;
+the policy refuses those too. Set styles through the style API instead —
+`el.style.background = …` is allowed.
+
+The calculator's Urdu and Hindi fonts — Noto Nastaliq Urdu and Noto Serif
+Devanagari — are self-hosted in `assets/fonts/` rather than loaded from Google
+Fonts, so no visitor's request reaches a third party. Both are under the SIL Open
+Font License; the licence texts ship beside the font files, as the licence
+requires.
 
 ## Running it
 
@@ -126,8 +140,7 @@ python3 -m http.server 8000
 then visit `http://localhost:8000`. Opening the files straight from disk is not
 reliable: the security policy only allows files from the site's own origin, and
 browsers treat files on disk inconsistently, so the shared styles and scripts may
-be refused. Nothing is fetched at runtime except the Urdu and Hindi webfonts on the
-calculator, which fall back to system fonts if they don't load.
+be refused. Nothing is fetched from anywhere else at runtime.
 
 ## Deploying
 
