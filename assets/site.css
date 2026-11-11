@@ -95,7 +95,7 @@ footer{
 .entry:last-child{border-bottom:0}
 .entry:hover,.entry:focus-visible{background:var(--panel2)}
 .icon{width:26px;height:26px;border-radius:6px;overflow:hidden;display:block;flex:none}
-.icon svg{width:100%;height:100%;display:block}
+.icon svg,.icon img{width:100%;height:100%;display:block}
 .ename{color:var(--blue);font-weight:700;white-space:nowrap}
 .entry:hover .ename{text-decoration:underline}
 .elang{color:var(--purple);font-size:12.5px;white-space:nowrap}

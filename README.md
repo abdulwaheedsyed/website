@@ -18,6 +18,9 @@ step, no framework, no dependencies — served straight from GitHub Pages.
 | `assets/mirath.js` | The calculator: the inheritance engine, the three languages and the interface |
 | `assets/mirath-favicon.svg` | The calculator's icon |
 | `assets/fonts/` | The calculator's self-hosted Urdu and Hindi webfonts, with their licences |
+| `assets/lastone-icon.png` | LastOne!'s icon, for its row on the landing page |
+| `lastone/VERSION` | Which LastOne! build to publish at `/lastone/` (see [Deploying](#deploying)) |
+| `.github/workflows/pages.yml` | Builds and deploys the site |
 | `CNAME` | The custom domain |
 
 Projects with their own repositories are listed under [Elsewhere](#elsewhere); the
@@ -61,6 +64,12 @@ workspace for MySQL, MariaDB, PostgreSQL, SQL Server, Oracle, MongoDB, BigQuery
 and SQLite. Query, browse, edit and migrate across engines, with SSH tunnels, a
 team vault and scheduled queries. One binary. *Go.*
 
+**[LastOne!](https://sawaheed.com/lastone/)** — a free card game for two to four
+players on a 3D table, on desktop, Android and the web, in English and Arabic:
+bots, online quick match, private tables, a daily challenge and seasons. No ads,
+no payments, no personal data. Its repository is private; the web build is
+published here at `/lastone/`. *Godot 4, with Cloudflare Workers online.*
+
 ## Adding a project
 
 1. If it is a page, drop the single HTML file at the repo root.
@@ -69,8 +78,12 @@ team vault and scheduled queries. One binary. *Go.*
    Give each inline `<svg>` a **unique gradient id**; duplicate ids across two
    inline SVGs break the fills. If the project already has its own icon, reuse
    that rather than drawing a new one, and prefix its ids to keep them unique.
+   A raster icon works too: copy it into `assets/` and use an `<img>`, as the
+   LastOne! row does. Don't point at an image on another site; the security
+   policy refuses it.
 3. If it lives in its own repository, point the row's `href` there and add it to
-   [Elsewhere](#elsewhere) instead of giving it a section under Projects.
+   [Elsewhere](#elsewhere) instead of giving it a section under Projects. If its
+   repository is private, link to where people can use it instead.
 
 ## Adding a note
 
@@ -129,6 +142,10 @@ Fonts, so no visitor's request reaches a third party. Both are under the SIL Ope
 Font License; the licence texts ship beside the font files, as the licence
 requires.
 
+`/lastone/` is outside all of this. It is the LastOne! web build, made in its own
+repository and dropped in at deploy time, so its security policy belongs there.
+It does not carry one yet.
+
 ## Running it
 
 Serve the folder over HTTP and open it, the same way GitHub Pages serves it:
@@ -142,6 +159,19 @@ reliable: the security policy only allows files from the site's own origin, and
 browsers treat files on disk inconsistently, so the shared styles and scripts may
 be refused. Nothing is fetched from anywhere else at runtime.
 
+`/lastone/` is not in this repository, so locally it shows only its `VERSION`
+file; the game itself appears once the site is deployed.
+
 ## Deploying
 
-Pushing to `main` publishes it. The domain lives in `CNAME`.
+Pushing to `main` runs `.github/workflows/pages.yml`, which builds the site with
+Jekyll — as GitHub's classic Pages build did — and deploys it to GitHub Pages.
+Pages have no front matter, so Jekyll copies them as they are. The domain lives in
+`CNAME`.
+
+The same workflow adds the LastOne! game. It clones the `web-build` branch of the
+private LastOne repository with a read-only deploy key (the `LASTONE_DEPLOY_KEY`
+secret) and copies it to `/lastone/`. LastOne's own CI updates `lastone/VERSION`
+here after each build, and that commit is what triggers a redeploy. If the clone
+fails, the site still deploys, just without the game, and the run shows a
+warning.
