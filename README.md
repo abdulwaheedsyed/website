@@ -142,9 +142,12 @@ Fonts, so no visitor's request reaches a third party. Both are under the SIL Ope
 Font License; the licence texts ship beside the font files, as the licence
 requires.
 
-`/lastone/` is outside all of this. It is the LastOne! web build, made in its own
-repository and dropped in at deploy time, so its security policy belongs there.
-It does not carry one yet.
+`/lastone/` is the LastOne! web build, made in its own repository and dropped in
+at deploy time, so its policy is set there too (`client/web/finish_pwa.py`). It
+follows the same rules — only its own files and its online server, no inline
+code except by hash, no `eval` — plus what a Godot game needs: WebAssembly
+(`'wasm-unsafe-eval'`), its service worker, and the online server's `https` and
+`wss` origins.
 
 ## Running it
 
